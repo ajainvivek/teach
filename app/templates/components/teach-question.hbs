@@ -1,0 +1,20 @@
+<div id="question" class="row">
+  <div class="large-10 columns">
+    <div class="large-10 columns question-title">
+      {{question.title}}
+    </div>
+    <div>
+      {{#paper-radio-group groupValue=groupValue onChange=(action (mut groupValue)) as |group|}}
+       {{#group.paper-radio value="1" primary=true}}
+         Radio button 1
+       {{/group.paper-radio}}
+       {{#group.paper-radio value="2"}}
+         Radio button 2
+       {{/group.paper-radio}}
+       {{#group.paper-radio value="3"}}
+         Radio button 3
+       {{/group.paper-radio}}
+     {{/paper-radio-group}}
+    </div>
+  </div>
+</div>
