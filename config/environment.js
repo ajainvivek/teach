@@ -4,6 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'teach',
     environment: environment,
+    podModulePrefix: 'teach/pods',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -17,6 +18,15 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
+  };
+
+  ENV.contentSecurityPolicy = {
+    'default-src': "'none'",
+    'script-src': "'self'",
+    'font-src': "'self' http://fonts.gstatic.com",
+    'connect-src': "'self'",
+    'img-src': "'self' data:",
+    'media-src': "'self'"
   };
 
   if (environment === 'development') {

@@ -12,6 +12,9 @@
     "jquery": "~1.11.3",
     "loader.js": "ember-cli/loader.js#3.2.1",
     "qunit": "~1.18.0",
-    "foundation": "~5.5.0"
+    "foundation": "~5.5.0",
+    "chartjs": "2.1.6",
+    "hammer.js": "~2.0.8",
+    "matchMedia": "0.2.0"
   }
 }
