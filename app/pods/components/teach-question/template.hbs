@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="large-10 columns">
+    <div class="question">
+      {{question.title}}
+    </div>
+    <div class="options">
+      {{#if isSingleSelection}}
+        {{#each option in question.options}}
+          {{#paper-radio value=option.value selected=selectedValue changed=(action 'change' option.value)}}{{option.value}}{{/paper-radio}}
+        {{/each}}
+      {{else}}
+        {{#each option in question.options}}
+          {{#paper-checkbox value=option.value checked=option.selected}}{{option.value}}{{#if option.selected}}yep{{else}}nope{{/if}}{{/paper-checkbox}}
+        {{/each}}
+      {{/if}}
+    </div>
+    <div class='timer'>
+      {{timeLeft}}
+    </div>
+    {{#paper-button action="submit" primary=true disabled=isSubmitDisabled}}Submit{{/paper-button}}
+  </div>
+</div>
