@@ -6,6 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('landing');
+  this.route('join');
+  this.route('slide');
 });
 
 export default Router;
