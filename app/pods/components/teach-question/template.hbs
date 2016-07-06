@@ -10,13 +10,15 @@
         {{/each}}
       {{else}}
         {{#each option in question.options}}
-          {{#paper-checkbox value=option.value checked=option.selected}}{{option.value}}{{#if option.selected}}yep{{else}}nope{{/if}}{{/paper-checkbox}}
+          {{#paper-checkbox value=option.value checked=option.selected action="change" on='change'}}{{option.value}}{{/paper-checkbox}}
         {{/each}}
       {{/if}}
     </div>
     <div class='timer'>
-      {{timeLeft}}
+      {{timeToShow}}
     </div>
-    {{#paper-button action="submit" primary=true disabled=isSubmitDisabled}}Submit{{/paper-button}}
+    <div class="large-8">
+      {{#paper-button action="submit" primary=true disabled=isSubmitDisabled class="buttonClass"}}Submit{{/paper-button}}
+    </div>
   </div>
 </div>

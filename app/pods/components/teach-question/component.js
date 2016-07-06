@@ -28,6 +28,8 @@ export default Ember.Component.extend({
     userAnswer: [],
     defaultTimeOut: 10,
     isSubmitDisabled: false,
+    timeToShow: "",
+    isTimerToContinue: true,
 
     didInsertElement: function(){
       this.set('selectedValue', this.get('question').options[0].value);
@@ -50,6 +52,8 @@ export default Ember.Component.extend({
       },
 
       submit: function(){
+        this.set('isSubmitDisabled', true);
+        this.set('isTimerToContinue', false);
         console.log(this.get('userAnswer'));
       }
     },
@@ -62,10 +66,12 @@ export default Ember.Component.extend({
       let self = this;
       Ember.run.later(function(){
         let time = self.get('timeLeft');
-        if(time > 0){
+        self.set("timeToShow", moment.utc(time*1000).format('mm:ss'));
+        if(time > 0 && self.get('isTimerToContinue')){
           self.set('timeLeft',time-1);
           self.startTimer();
         }else{
+          self.set('isTimerToContinue', false);
           self.set('isSubmitDisabled', true);
         }
       },1000);
