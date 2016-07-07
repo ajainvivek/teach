@@ -12,9 +12,20 @@ export default Ember.Controller.extend({
 
   init : function () {
     console.log(this.get('webrtc').getClient());
+    let webrtc = this.get('webrtc');
+    webrtc.initialize();
   },
 
   actions:{
+    addUser : function () {
+      let webrtc = this.get('webrtc');
+      let user = {
+        name : "test",
+        id : "hello"
+      };
+      webrtc.broadcast(user);
+    },
+
     slideQuestion: function(){
       let slideService = this.get('slideService');
       let slideId = slideService.getSlideId();

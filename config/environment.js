@@ -24,7 +24,7 @@ module.exports = function(environment) {
     'default-src': "'none'",
     'script-src': "'self'",
     'font-src': "'self' http://fonts.gstatic.com",
-    'connect-src': "'self'",
+    'connect-src': "'self' wss://tracker.webtorrent.io/",
     'img-src': "'self' data:",
     'media-src': "'self'"
   };
