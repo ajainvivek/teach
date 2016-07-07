@@ -18,6 +18,10 @@ module.exports = function(defaults) {
   app.import('bower_components/owl.carousel/dist/assets/owl.carousel.min.css');
   app.import('bower_components/owl.carousel/dist/owl.carousel.min.js');
 
+  app.import('bower_components/reveal.js/css/reveal.css');
+  app.import('bower_components/reveal.js/css/theme/simple.css');
+  app.import('bower_components/reveal.js/js/reveal.js');
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
