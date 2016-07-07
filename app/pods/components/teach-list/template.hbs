@@ -1,0 +1,17 @@
+{{#paper-content class="md-whiteframe-z1 list-demo"}}
+  {{#paper-list}}
+    {{#each attendees as |attendee|}}
+      {{#paper-item}}
+        <div class="md-list-item-text list">
+          <h5>{{attendee.name}}</h5>
+          {{#if attendee.isPresenter}}
+            <img src="images/presenter.png" height="24" width="24" />
+          {{else}}
+            <img src="images/attendee.png" height="24" width="24" />
+          {{/if}}
+        </div>
+      {{/paper-item}}
+      {{paper-divider}}
+    {{/each}}
+  {{/paper-list}}
+{{/paper-content}}

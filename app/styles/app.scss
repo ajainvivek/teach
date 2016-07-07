@@ -3,3 +3,9 @@
 @import 'pod-styles';
 
 @import 'ember-paper';
+
+$row-width: rem-calc(1280);
+
+.slide {
+  margin: 10px 0px;
+}
