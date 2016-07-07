@@ -6,11 +6,11 @@
     <div class="options">
       {{#if isSingleSelection}}
         {{#each option in question.options}}
-          {{#paper-radio value=option.value selected=selectedValue changed=(action 'change' option.value)}}{{option.value}}{{/paper-radio}}
+          {{#paper-radio value=option.id selected=selectedValue changed=(action 'change' option.id)}}{{option.value}}{{/paper-radio}}
         {{/each}}
       {{else}}
         {{#each option in question.options}}
-          {{#paper-checkbox value=option.value checked=option.selected action="change" on='change'}}{{option.value}}{{/paper-checkbox}}
+          {{teach-checkbox value=option.value onChecked=(action 'onChecked' option.id) onUnChecked=(action 'onUnChecked' option.id)}}
         {{/each}}
       {{/if}}
     </div>

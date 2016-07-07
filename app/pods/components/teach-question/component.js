@@ -1,27 +1,56 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  question: {
-      "type" : "multi",
-      "title" : "Is this working?",
-      "options" : [{
-        "id" : "1",
-        "value" : "Yes",
-        "selected" : true
+  obj: {
+    "roomId": "123",
+      "id": 1,
+      "presenter": {
+        "id": "123",
+        "name": "345"
       },
-      {
-        "id" : "2",
-        "value" : "No",
-        "selected" : false
-      }],
-      "answer" : ["1"],
-      "chart" : "pie",
-      "responses" : [{
-        "id" : "334",
-        "name" : "sett",
-        "answer" : ["1"]
-      }],
-      "timeout" : 10
+      "slideTemplate": "url",
+      "title": "Title",
+      "snapshotImg": "url",
+      "theme": "default",
+      "slides": [
+        {
+          "id": "123",
+          "seqNo": 1,
+          "type": "info/qs",
+          "isCurrentQs": false,
+          "qs": {
+            "type": "multi",
+            "title": "Is this working?",
+            "options": [
+              {
+                "id": "1",
+                "value": "Yes"
+              },
+              {
+                "id": "2",
+                "value": "No"
+              }
+            ],
+            "answer": ["1"],
+            "chart": "pie",
+            "responses": [
+              {
+                "id": "334",
+                "name": "sett",
+                "answer": ["1","2"]
+              }
+            ],
+            "timeout": 30,
+            "isCompleted": true
+          }
+        }
+      ],
+      "users": [
+        {
+          "id": "1",
+          "name": "Sajith"
+        }
+      ]
     },
     selectedValue: "",
     isSingleSelection: true,
@@ -32,7 +61,7 @@ export default Ember.Component.extend({
     isTimerToContinue: true,
 
     didInsertElement: function(){
-      this.set('selectedValue', this.get('question').options[0].value);
+      this.set('question', this.get('obj').slides[0].qs);
       if(this.get('question').type === 'single'){
         this.set('isSingleSelection', true);
       }else{
@@ -44,11 +73,24 @@ export default Ember.Component.extend({
 
     actions: {
       change: function(value){
-        console.log('hittt');
-        if(this.get('isSingleSelection')){
-          this.set('userAnswer',[]);
-          this.get('userAnswer').push(value);
+        this.set('userAnswer',[]);
+        this.get('userAnswer').push(value);
+      },
+
+      onChecked: function(value){
+        let answerArray = this.get('userAnswer');
+        if(answerArray.indexOf(value) == -1){
+          answerArray.push(value);
         }
+        console.log(this.get('userAnswer'));
+      },
+
+      onUnChecked: function(value){
+        let answerArray = this.get('userAnswer');
+        if(answerArray.indexOf(value) != -1){
+          answerArray.splice(answerArray.indexOf(value), 1);
+        }
+        console.log(this.get('userAnswer'));
       },
 
       submit: function(){
@@ -57,10 +99,6 @@ export default Ember.Component.extend({
         console.log(this.get('userAnswer'));
       }
     },
-
-    test: function(){
-      console.log('ok');
-    }.observes('question.options'),
 
     startTimer: function(){
       let self = this;
