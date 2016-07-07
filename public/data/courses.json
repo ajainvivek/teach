@@ -1,0 +1,86 @@
+{
+"courses": [{
+    "roomId": "123",
+    "id": 0,
+    "slideTemplate": "url",
+    "title": "ECMA6",
+    "description": "Learn the new way to code in JavaScript.",
+    "snapshotImg": "http://d1zlh37f1ep3tj.cloudfront.net/wp/wblob/54592E651337D2/22DA/3E75E5/_cCyPoB9Eb1_JTP8ZL_ZuA/EmilysQuotes.Com-Intelligence-teach-learning-Benjamin-Franklin.jpg",
+    "theme": "default",
+    "slides": [{
+      "id": "123",
+      "seqNo": 1,
+      "type": "info/qs",
+      "isCurrentQs": false,
+      "qs": {
+        "type": "single/multi",
+        "title": "adasd",
+        "options": [{
+          "id": "1",
+          "value": "test"
+        }],
+        "answer": [
+          "1"
+        ],
+        "chart": "pie",
+        "responses": [{
+          "id": "334",
+          "name": "sett",
+          "answer": [
+            "1",
+            "2"
+          ]
+        }],
+        "timeout": 30,
+        "isCompleted": true
+      }
+    }],
+    "users": [{
+      "id": "1",
+      "name": "Sajith"
+    }]
+  },
+
+  {
+    "roomId": "124",
+    "id": 1,
+    "slideTemplate": "url",
+    "title": "ECMA6",
+    "description": "Learn the new way to code in JavaScript.",
+    "snapshotImg": "http://d1zlh37f1ep3tj.cloudfront.net/wp/wblob/54592E651337D2/22DA/3E75E5/_cCyPoB9Eb1_JTP8ZL_ZuA/EmilysQuotes.Com-Intelligence-teach-learning-Benjamin-Franklin.jpg",
+    "theme": "default",
+    "slides": [{
+      "id": "124",
+      "seqNo": 1,
+      "type": "info/qs",
+      "isCurrentQs": false,
+      "qs": {
+        "type": "single/multi",
+        "title": "adasd",
+        "options": [{
+          "id": "1",
+          "value": "test"
+        }],
+        "answer": [
+          "1"
+        ],
+        "chart": "pie",
+        "responses": [{
+          "id": "334",
+          "name": "sett",
+          "answer": [
+            "1",
+            "2"
+          ]
+        }],
+        "timeout": 30,
+        "isCompleted": true
+      }
+    }],
+    "users": [{
+      "id": "1",
+      "name": "Sajith"
+    }]
+  }
+]
+}

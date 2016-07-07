@@ -1,2 +1,49 @@
 {{outlet}}
-{{teach-card}}
+{{#paper-content}}
+{{#if model.liveCourses}}
+  <div class="row">
+    <h3>Live Courses</h3>
+    {{paper-divider}}
+  </div>
+
+  <div class="row collapse">
+    {{#each model.liveCourses as |liveCourse|}}
+    <div class="small-4 columns">
+      {{teach-card
+        live= true
+        id= liveCourse.id
+        title= liveCourse.title
+        description= liveCourse.description
+        snapshotImg= liveCourse.snapshotImg
+        goToCourse= (action goToCourse)
+      }}
+    </div>
+    {{/each}}
+  </div>
+{{/if}}
+  <br>
+
+  {{#if model.availableCourses}}
+    <div class="row">
+      <h3>Available Courses</h3>
+      {{paper-divider}}
+    </div>
+
+    <div class="row collapse">
+      {{#each model.availableCourses as |availableCourse|}}
+      <div class="small-4 columns end">
+        {{teach-card
+          live= false
+          id= availableCourse.id
+          title= availableCourse.title
+          description= availableCourse.description
+          snapshotImg= availableCourse.snapshotImg
+          presentCourse= (action 'presentCourse')
+          joinCourse= (action 'joinCourse')
+        }}
+      </div>
+      {{/each}}
+    </div>
+  {{/if}}
+
+{{/paper-content}}
