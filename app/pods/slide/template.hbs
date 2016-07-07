@@ -1,10 +1,12 @@
 <div class="slide">
   <div class="row">
-    <div class="small-12 medium-3 large-3 columns">
-      {{teach-question}}
+    <div class="small-12 medium-3 large-3 columns" id="leftPanel">
+      {{#if questionData}}
+        {{teach-question question=questionData}}
+      {{/if}}
     </div>
     <div class="small-12 medium-6 large-6 columns">
-      {{teach-reveal-slide}}
+      {{teach-reveal-slide data=data slideQuestion=(action 'slideQuestion') slideInfo=(action 'slideInfo')}}
     </div>
     <div class="small-12 medium-3 large-3 columns">
       {{teach-list}}

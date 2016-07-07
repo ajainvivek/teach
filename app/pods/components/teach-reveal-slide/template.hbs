@@ -1,8 +1,9 @@
 <div class="reveal-frame">
   <div class="reveal">
       <div class="slides">
-          <section>Slide 1</section>
-          <section>Slide 2</section>
+          {{#each slide in data.slides}}
+            <section type={{slide.type}} slide={{slide.id}}>{{slide.content}}</section>
+          {{/each}}
       </div>
   </div>
 </div>

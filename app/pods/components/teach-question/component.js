@@ -1,57 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  obj: {
-    "roomId": "123",
-      "id": 1,
-      "presenter": {
-        "id": "123",
-        "name": "345"
-      },
-      "slideTemplate": "url",
-      "title": "Title",
-      "snapshotImg": "url",
-      "theme": "default",
-      "slides": [
-        {
-          "id": "123",
-          "seqNo": 1,
-          "type": "info/qs",
-          "isCurrentQs": false,
-          "qs": {
-            "type": "multi",
-            "title": "Is this working?",
-            "options": [
-              {
-                "id": "1",
-                "value": "Yes"
-              },
-              {
-                "id": "2",
-                "value": "No"
-              }
-            ],
-            "answer": ["1"],
-            "chart": "pie",
-            "responses": [
-              {
-                "id": "334",
-                "name": "sett",
-                "answer": ["1","2"]
-              }
-            ],
-            "timeout": 30,
-            "isCompleted": true
-          }
-        }
-      ],
-      "users": [
-        {
-          "id": "1",
-          "name": "Sajith"
-        }
-      ]
-    },
+
     selectedValue: "",
     isSingleSelection: true,
     userAnswer: [],
@@ -61,7 +11,7 @@ export default Ember.Component.extend({
     isTimerToContinue: true,
 
     didInsertElement: function(){
-      this.set('question', this.get('obj').slides[0].qs);
+      //this.set('question', this.get('obj').slides[0].qs);
       if(this.get('question').type === 'single'){
         this.set('isSingleSelection', true);
       }else{
