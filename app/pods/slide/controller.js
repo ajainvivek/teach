@@ -30,12 +30,12 @@ export default Ember.Controller.extend({
       let slideService = this.get('slideService');
       let slideId = slideService.getSlideId();
       this.set('questionData', this.findQuestionBySlideId(slideId).qs);
-      $('#leftPanel').show();
+      $('#left-panel').show();
     },
 
     slideInfo: function(){
       this.set('questionData', '');
-      $('#leftPanel').hide();
+      $('#left-panel').hide();
     }
   },
 

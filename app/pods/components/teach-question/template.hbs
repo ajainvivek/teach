@@ -1,24 +1,26 @@
-<div class="row">
-  <div class="large-10 columns">
-    <div class="question">
-      {{question.title}}
-    </div>
-    <div class="options">
-      {{#if isSingleSelection}}
-        {{#each option in question.options}}
-          {{#paper-radio value=option.id selected=selectedValue changed=(action 'change' option.id)}}{{option.value}}{{/paper-radio}}
-        {{/each}}
-      {{else}}
-        {{#each option in question.options}}
-          {{teach-checkbox value=option.value onChecked=(action 'onChecked' option.id) onUnChecked=(action 'onUnChecked' option.id)}}
-        {{/each}}
-      {{/if}}
-    </div>
-    <div class='timer'>
-      {{timeToShow}}
-    </div>
-    <div class="large-8">
-      {{#paper-button action="submit" primary=true disabled=isSubmitDisabled class="buttonClass"}}Submit{{/paper-button}}
+{{#paper-card class="question-wrapper"}}
+  <div class="row">
+    <div class="large-10 columns">
+      <div class="question">
+        {{question.title}}
+      </div>
+      <div class="options">
+        {{#if isSingleSelection}}
+          {{#each option in question.options}}
+            {{#paper-radio value=option.id selected=selectedValue changed=(action 'change' option.id)}}{{option.value}}{{/paper-radio}}
+          {{/each}}
+        {{else}}
+          {{#each option in question.options}}
+            {{teach-checkbox value=option.value onChecked=(action 'onChecked' option.id) onUnChecked=(action 'onUnChecked' option.id)}}
+          {{/each}}
+        {{/if}}
+      </div>
+      <div class='timer'>
+        {{timeToShow}}
+      </div>
+      <div class="large-8">
+        {{#paper-button action="submit" primary=true disabled=isSubmitDisabled class="buttonClass"}}Submit{{/paper-button}}
+      </div>
     </div>
   </div>
-</div>
+{{/paper-card}}

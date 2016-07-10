@@ -1,15 +1,17 @@
-.question{
-  font-size: 1.5em;
-  font-weight: bold;
-}
+.question-wrapper {
+  .question{
+    font-size: 1.5em;
+    font-weight: bold;
+  }
 
-.timer{
-  color: red;
-  font-weight: bold;
-  font-size: 1.2em;
-  text-align: center;
-}
+  .timer{
+    color: red;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+  }
 
-.buttonClass{
-  width: 100%;
+  .buttonClass{
+    width: 100%;
+  }
 }

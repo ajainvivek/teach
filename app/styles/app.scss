@@ -6,6 +6,35 @@
 
 $row-width: rem-calc(1280);
 
+.fullWidth {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: initial;
+}
+
 .slide {
-  margin: 10px 0px;
+  position: relative;
+
+  .columns {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #left-panel {
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    width: 200px;
+    z-index: 999;
+    background-color: #FFFFFF;
+  }
+
+  #right-panel {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    width: 200px;
+    z-index: 999;
+  }
 }

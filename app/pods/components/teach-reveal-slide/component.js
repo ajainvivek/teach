@@ -11,7 +11,11 @@ export default Ember.Component.extend({
   didInsertElement: function () {
     let self=this;
     Reveal.initialize({
-      center: false
+      center: false,
+      parallaxBackgroundImage: 'http://revelwallpapers.net/d/3634754B6D354C63334E6D37676F35397947796475734C5134724F5461413D3D/the-walking-dead-season-4-boy-telltale-games-zombie-field-hd.jpg',
+      parallaxBackgroundSize: '2100px 900px',
+      parallaxBackgroundHorizontal: 200,
+      parallaxBackgroundVertical: 50
     });
 
     Reveal.addEventListener( 'slidechanged', function( event ) {
