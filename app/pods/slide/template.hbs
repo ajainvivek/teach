@@ -2,9 +2,9 @@
   <div class="row fullWidth">
     <div id="left-panel">
       {{#if questionData}}
-        {{teach-chart}}
+        {{teach-chart timeCompleted=timeCompleted}}
         {{paper-divider}}
-        {{teach-question question=questionData}}
+        {{teach-question question=questionData questionTimeCompleted=(action 'questionTimeCompleted')}}
       {{/if}}
     </div>
     <div class="small-12 medium-12 large-12 columns">

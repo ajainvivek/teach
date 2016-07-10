@@ -54,11 +54,16 @@ export default Ember.Component.extend({
       let self = this;
       Ember.run.later(function(){
         let time = self.get('timeLeft');
-        self.set("timeToShow", moment.utc(time*1000).format('mm:ss'));
-        if(time > 0 && self.get('isTimerToContinue')){
+        //If submit button is disabled, dont change display time but continue timer internally
+        if(!self.get('isSubmitDisabled')){
+          self.set("timeToShow", moment.utc(time*1000).format('mm:ss'));
+        }
+        if(time > 0){
           self.set('timeLeft',time-1);
           self.startTimer();
         }else{
+          console.log('time completed');
+          self.sendAction('questionTimeCompleted');
           self.set('isTimerToContinue', false);
           self.set('isSubmitDisabled', true);
         }

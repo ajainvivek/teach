@@ -53,7 +53,7 @@ export default Ember.Object.create({
               ]
             }
           ],
-          "timeout": 30,
+          "timeout": 10,
           "isCompleted": true
         }
       },
@@ -97,7 +97,7 @@ export default Ember.Object.create({
               ]
             }
           ],
-          "timeout": 30,
+          "timeout": 20,
           "isCompleted": true
         }
       }
