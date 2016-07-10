@@ -18,14 +18,14 @@ export default Ember.Object.create({
         "seqNo": 1,
         "type": "info",
         "isCurrentQs": false,
-        "content": "This is a info type slide 1"
+        "content": "<h2>ES6 Zombie Attack</h2><h4>Introduction to ES6 basic concepts</h4><br />"
       },
       {
         "id": "123",
         "seqNo": 2,
         "type": "qs",
         "isCurrentQs": false,
-        "content": "This is Question type slide 1",
+        "content": "<h2>javascript! why ?</h2> <p> <ul> <li class=\"fragment\">easy to understand</li><li class=\"fragment\">easy to learn</li><li class=\"fragment\">easy to re-use</li><li class=\"fragment\">easy to modify</li><li class=\"fragment\">easy to use with max/msp</li><li class=\"fragment\">easy</li><li class=\"fragment\">easy</li><li class=\"fragment\">zZzzzZZ</li><li class=\"fragment\">zZzzZzZZz...</li></ul> </p>",
         "qs": {
           "type": "single",
           "title": "A sample Single selection question",
@@ -62,14 +62,15 @@ export default Ember.Object.create({
         "seqNo": 3,
         "type": "info",
         "isCurrentQs": false,
-        "content": "This is a info type slide 2"
+        "contentTypeScript": true,
+        "content": "### variables ( aka vars ): stores values \n <pre> <code> var my_variable=\"my awesome value\"; \n var my_number=1; \n var my_floating_number=1.23; \n var PI=3.14; </pre> </code>"
       },
       {
         "id": "125",
         "seqNo": 4,
         "type": "qs",
         "isCurrentQs": false,
-        "content": "This is Question type slide 2",
+        "content": "<pre><code contenteditable>var start_time;</code></pre>",
         "qs": {
           "type": "multi",
           "title": "A sample multi selection question",

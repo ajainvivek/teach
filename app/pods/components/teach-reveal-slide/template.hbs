@@ -2,7 +2,15 @@
   <div class="reveal">
       <div class="slides">
           {{#each slide in data.slides}}
-            <section type={{slide.type}} slide={{slide.id}}>{{slide.content}}</section>
+            {{#if slide.contentTypeScript}}
+              <section type={{slide.type}} slide={{slide.id}} contentType={{slide.contentType}} data-markdown>
+                <script type="text/template">
+                  {{teach-reveal-render slide.content slide.contentType}}
+                </script>
+              </section>
+            {{else}}
+              <section type={{slide.type}} slide={{slide.id}} contentType={{slide.contentType}}>{{teach-reveal-render slide.content slide.contentType}}</section>
+            {{/if}}
           {{/each}}
       </div>
   </div>

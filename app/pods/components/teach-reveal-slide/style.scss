@@ -1,12 +1,15 @@
 .reveal-frame {
   position: relative;
   z-index: 2;
-  height: calc(100vh);
+  height: calc(100vh - 45px);
   width: 100%;
   overflow: hidden;
 
   .reveal {
-    color: #dedede;
+    color: #f1ebd9;
+    h1, h2, h3, h4, h5, h6 {
+      color: #f1ebd9;
+    }
     .progress {
       position: absolute;
     }

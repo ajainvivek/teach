@@ -20,7 +20,9 @@ module.exports = function(defaults) {
 
   app.import('bower_components/reveal.js/css/reveal.css');
   app.import('bower_components/reveal.js/css/theme/white.css');
+  app.import('bower_components/reveal.js/lib/js/head.min.js');
   app.import('bower_components/reveal.js/js/reveal.js');
+  app.import('vendor/highlightjs/themes/zenburn.css');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.

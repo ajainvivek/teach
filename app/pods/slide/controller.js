@@ -10,7 +10,6 @@ export default Ember.Controller.extend({
   webrtc: inject.service('webrtc'),
   questionData: '',
   timeCompleted: false,
-
   init : function () {
     console.log(this.get('webrtc').getClient());
     let webrtc = this.get('webrtc');
