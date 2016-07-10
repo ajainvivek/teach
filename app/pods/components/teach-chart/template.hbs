@@ -1,1 +1,5 @@
-{{ember-chart type='pie' data=chartData width=200 height=200}}
+{{#if timeCompleted}}
+  {{ember-chart type='pie' data=chartData width=200 height=200}}
+{{else}}
+  {{ember-chart type='bar' data=chartData width=200 height=200}}
+{{/if}}
