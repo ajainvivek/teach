@@ -1,7 +1,64 @@
-.card {
-  width : 380px;
-  height : 420px;
-}
-.buttonBar {
-  padding-top: 1px solid #777;
+.card-wrapper {
+  .h-table {
+      background: 0 0;
+      border: none;
+      margin-bottom: 0;
+      width: 100%;
+      .h-table-margin {
+          margin: 1.65rem 0 1.25rem;
+      }
+      .h-content {
+          white-space: nowrap;
+          width: 1px;
+
+          h3 {
+            font-weight: 100;
+          }
+      }
+
+      .h-line {
+          position: relative;
+          div {
+              border-bottom: 1px solid #bebebe;
+              bottom: 45%;
+              left: 10px;
+              position: absolute;
+              right: 10px;
+          }
+      }
+  }
+
+  .owl-carousel {
+    &.owl-loaded {
+      margin: 0px auto;
+      max-width: 62.5rem;
+    }
+  }
+
+  .card {
+    width : 320px;
+    height : 360px;
+
+    .columns {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .button-bar {
+      button {
+        width: 145px;
+      }
+    }
+
+    .desc {
+      padding: 10px;
+      h2 {
+        color: #008ED2;
+        font-size: 14px;
+      }
+      p {
+        font-weight: bold;
+      }
+    }
+  }
 }

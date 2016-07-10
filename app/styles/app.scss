@@ -47,3 +47,23 @@ $row-width: rem-calc(1280);
     background: #fff;
   }
 }
+
+.join-wrapper {
+  width:400px;
+  margin: 0px auto;
+  padding: 10px;
+
+  .inner-card {
+    background: rgba(0, 188, 212, 0.08);
+  }
+
+  h2 {
+    font-size: 16px;
+    color: #3F51B5;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}

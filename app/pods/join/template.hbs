@@ -1,1 +1,19 @@
-{{outlet}}
+{{#paper-card class="join-wrapper"}}
+  {{#paper-card class="inner-card"}}
+    {{#paper-card-title}}
+      {{#paper-card-title-text}}
+
+        <h2>ES6 - Zombie Attack - Eps 1</h2>
+        {{paper-divider}}
+        <p>Learn let, constant, ..</p>
+
+      {{/paper-card-title-text}}
+    {{/paper-card-title}}
+  {{/paper-card}}
+  <p>
+    {{paper-input label="Enter you name" value=name required=true min="2" maxlength="20" maxlength-errortext="Max length exceeded."}}
+  </p>
+  <div class="md-actions" layout="row" layout-align="end center">
+    {{#paper-button primary=true raised=true action="join"}}Join{{/paper-button}}
+  </div>
+{{/paper-card}}

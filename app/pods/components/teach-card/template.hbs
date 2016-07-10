@@ -1,24 +1,38 @@
-<div class="owl-carousel owl-theme">
-  {{#paper-card class="card"}}
-      <div class="row">
-        <div class="columns">
-            <img src="http://d1zlh37f1ep3tj.cloudfront.net/wp/wblob/54592E651337D2/22DA/3E75E5/_cCyPoB9Eb1_JTP8ZL_ZuA/EmilysQuotes.Com-Intelligence-teach-learning-Benjamin-Franklin.jpg">
+<div class="card-wrapper">
+  <div class="row">
+    <div class="columns">
+      <table class="h-table h-table-margin">
+        <tbody><tr>
+          <td class="h-content"><h3 class="antialiased">Featured Slides</h3></td>
+          <td class="h-line"><div></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="owl-carousel owl-theme">
+    {{#paper-card class="card"}}
+        <div class="row">
+          <div class="columns">
+              <img src="http://d1zlh37f1ep3tj.cloudfront.net/wp/wblob/54592E651337D2/22DA/3E75E5/_cCyPoB9Eb1_JTP8ZL_ZuA/EmilysQuotes.Com-Intelligence-teach-learning-Benjamin-Franklin.jpg">
+          </div>
         </div>
-      </div>
 
-      <div class = "row">
-        <div class = "small-12 medium-12 large-12 columns">
-            <h2>Paracosm</h2>
-            <p>The titles of Washed</p>
+        <div class = "row">
+          <div class = "small-12 medium-12 large-12 columns desc">
+              <h2>Ajain Vivek</h2>
+              <p>ES6 - Zombie Attack - Eps 1</p>
+          </div>
         </div>
-      </div>
-      <div class = "row buttonBar">
-        <div class = "small-6 medium-6 large-6 columns">
-          {{#paper-button}}Action 1{{/paper-button}}
+        {{paper-divider}}
+        <div class = "row button-bar">
+          <div class = "small-6 medium-6 large-6 columns">
+            {{#paper-button primary=true raised=true action="present"}}Present{{/paper-button}}
+          </div>
+          <div class = "small-6 medium-6 large-6 columns">
+            {{#paper-button raised=true action="view"}}View{{/paper-button}}
+          </div>
         </div>
-        <div class = "small-6 medium-6 large-6 columns">
-          {{#paper-button}}Action 2{{/paper-button}}
-        </div>
-      </div>
-  {{/paper-card}}
+    {{/paper-card}}
+  </div>
 </div>
