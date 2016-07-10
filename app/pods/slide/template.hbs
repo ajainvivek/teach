@@ -2,6 +2,8 @@
   <div class="row fullWidth">
     <div id="left-panel">
       {{#if questionData}}
+        {{teach-chart}}
+        {{paper-divider}}
         {{teach-question question=questionData}}
       {{/if}}
     </div>
@@ -10,7 +12,6 @@
     </div>
     <div id="right-panel">
       {{teach-list}}
-      <button type="button" name="button" {{action 'addUser'}}>Add User</button>
     </div>
   </div>
 </div>

@@ -3,12 +3,12 @@
     {{#each attendees as |attendee|}}
       {{#paper-item}}
         <div class="md-list-item-text list">
-          <h5>{{attendee.name}}</h5>
           {{#if attendee.isPresenter}}
-            <img src="images/presenter.png" height="24" width="24" />
+            {{paper-icon 'desktop-mac'}}
           {{else}}
-            <img src="images/attendee.png" height="24" width="24" />
+            {{paper-icon 'person'}}
           {{/if}}
+          <span>{{attendee.name}}</span>
         </div>
       {{/paper-item}}
       {{paper-divider}}
