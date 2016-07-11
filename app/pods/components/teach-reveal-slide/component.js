@@ -10,8 +10,6 @@ export default Ember.Component.extend({
   data: [],
   didInsertElement: function () {
     let self=this;
-    Ember.run.later(function () {
-    });
     Reveal.initialize({
       center: false,
       parallaxBackgroundImage: 'images/zombie_attack.jpg',
@@ -42,11 +40,6 @@ export default Ember.Component.extend({
     Reveal.addEventListener( 'slidechanged', function( event ) {
       let slideService = self.get('slideService');
       slideService.setSlideId($(event.currentSlide).attr('slide'));
-      if ($(event.currentSlide).attr('contentType') === 'script') {
-        Ember.run.later(function () {
-          Reveal.sync();
-        }, 100);
-      }
       if($(event.currentSlide).attr('type') === 'qs'){
         self.sendAction('slideQuestion');
       }else{

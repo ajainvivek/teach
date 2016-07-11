@@ -10,6 +10,7 @@ export default Ember.Controller.extend({
   webrtc: inject.service('webrtc'),
   questionData: '',
   timeCompleted: false,
+  qsContext: null,
   init : function () {
     console.log(this.get('webrtc').getClient());
     let webrtc = this.get('webrtc');
@@ -27,11 +28,12 @@ export default Ember.Controller.extend({
     },
 
     slideQuestion: function(){
+      this.set('questionData', '');
       this.set('timeCompleted', false);
       let slideService = this.get('slideService');
       let slideId = slideService.getSlideId();
       this.set('questionData', this.findQuestionBySlideId(slideId).qs);
-      $('#left-panel').show();
+      $('#left-panel').hide().show();
     },
 
     slideInfo: function(){

@@ -26,21 +26,21 @@ export default Ember.Object.create({
         "content": "<h2>Zombie Attack Agenda ?</h2> <p> <ul> <li class=\"fragment\">let, const & block scope</li><li class=\"fragment\">Arrow Functions</li><li class=\"fragment\">Template Literals</li><li class=\"fragment\">Default Function Parameters</li><li class=\"fragment\">Rest and Spread</li></ul> </p>"
       },
       {
-        "id": "122",
+        "id": "124",
         "seqNo": 3,
         "type": "info",
         "isCurrentQs": false,
         "content": "<p><b>'let'</b> allows you to declare variables that are limited in scope to the block, statement, or expression on which it is used.</p></br><p><b>'Constants'</b> are block-scoped, much like variables defined using the let statement. The value of a constant cannot change through re-assignment, and it can't be redeclared.</p>"
       },
       {
-        "id": "122",
+        "id": "125",
         "seqNo": 4,
         "type": "info",
         "isCurrentQs": false,
         "content": "<h3>Zombie Time</h3><p>You will be fired up with questions. Choose the answer within 45 seconds. <br><br><br> Ninja's, Let's get rolling!!!. </p>"
       },
       {
-        "id": "125",
+        "id": "126",
         "seqNo": 5,
         "type": "qs",
         "isCurrentQs": false,
@@ -86,7 +86,7 @@ export default Ember.Object.create({
         }
       },
       {
-        "id": "125",
+        "id": "127",
         "seqNo": 6,
         "type": "qs",
         "isCurrentQs": false,
@@ -132,13 +132,13 @@ export default Ember.Object.create({
         }
       },
       {
-        "id": "122",
+        "id": "128",
         "seqNo": 7,
         "type": "info",
         "content": "<img src='https://media.giphy.com/media/WMgXdYifGXKg/giphy.gif' />"
       },
       {
-        "id": "125",
+        "id": "129",
         "seqNo": 8,
         "type": "qs",
         "isCurrentQs": false,
@@ -183,13 +183,13 @@ export default Ember.Object.create({
         }
       },
       {
-        "id": "122",
+        "id": "130",
         "seqNo": 9,
         "type": "info",
         "content": "<img src='https://media.giphy.com/media/xTiTnyijMsXgn6Bzzy/giphy.gif' />"
       },
       {
-        "id": "125",
+        "id": "131",
         "seqNo": 10,
         "type": "qs",
         "isCurrentQs": false,
@@ -234,7 +234,7 @@ export default Ember.Object.create({
         }
       },
       {
-        "id": "125",
+        "id": "132",
         "seqNo": 11,
         "type": "qs",
         "isCurrentQs": false,
@@ -279,7 +279,7 @@ export default Ember.Object.create({
         }
       },
       {
-        "id": "125",
+        "id": "133",
         "seqNo": 11,
         "type": "qs",
         "isCurrentQs": false,

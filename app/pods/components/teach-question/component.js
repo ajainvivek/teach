@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import _lang from 'lodash/lang';
 
 export default Ember.Component.extend({
 
@@ -17,9 +18,15 @@ export default Ember.Component.extend({
       }else{
         this.set('isSingleSelection', false);
       }
+
       this.set('timeLeft', this.get('question').timeout);
       this.startTimer();
     },
+
+    invokeTimer : function () {
+      this.clearTimer();
+      this.startTimer();
+    }.observes('question'),
 
     actions: {
       change: function(value){
@@ -49,10 +56,10 @@ export default Ember.Component.extend({
         console.log(this.get('userAnswer'));
       }
     },
-
+    timer : null,
     startTimer: function(){
       let self = this;
-      Ember.run.later(function(){
+      this.timer = setTimeout(function(){
         let time = self.get('timeLeft');
         //If submit button is disabled, dont change display time but continue timer internally
         if(!self.get('isSubmitDisabled')){
@@ -68,5 +75,9 @@ export default Ember.Component.extend({
           self.set('isSubmitDisabled', true);
         }
       },1000);
+    },
+    clearTimer: function () {
+      window.clearInterval(this.timer);
+      this.set("timeLeft", this.get('question').timeout);
     }
 });
