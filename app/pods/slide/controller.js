@@ -11,22 +11,7 @@ export default Ember.Controller.extend({
   questionData: '',
   timeCompleted: false,
   qsContext: null,
-  init : function () {
-    console.log(this.get('webrtc').getClient());
-    let webrtc = this.get('webrtc');
-    webrtc.initialize();
-  },
-
   actions:{
-    addUser : function () {
-      let webrtc = this.get('webrtc');
-      let user = {
-        name : "test",
-        id : "hello"
-      };
-      webrtc.broadcast(user);
-    },
-
     slideQuestion: function(){
       this.set('questionData', '');
       this.set('timeCompleted', false);
@@ -52,5 +37,15 @@ export default Ember.Controller.extend({
        return e.id == id;
      });
     return result[0];
+  },
+
+  broadcastData : function (slideData) {
+    let webrtc = this.get('webrtc');
+    let callback = function (data) {
+      this.EventBus.publish('slideData', data);
+    };
+    if (slideData) {
+      webrtc.broadcast(slideData, callback);
+    }
   }
 });

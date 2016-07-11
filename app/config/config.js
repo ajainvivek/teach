@@ -4,10 +4,6 @@ export default Ember.Object.create({
   data: {
     "roomId": "123",
     "id": 1,
-    "presenter": {
-      "id": "123",
-      "name": "345"
-    },
     "slideTemplate": "url",
     "title": "Title",
     "snapshotImg": "url",
@@ -327,7 +323,8 @@ export default Ember.Object.create({
     "users": [
       {
         "id": "1",
-        "name": "Sajith"
+        "name": "Sajith",
+        "isPrensenter": false
       }
     ]
   }

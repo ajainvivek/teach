@@ -16,8 +16,8 @@ export default Ember.Service.extend({
   state : {},
   peers : [],
   torrentData : {},
-  username: "test",
-  initialize : function () {
+  user: {},
+  initialize : function (user, callback) {
     let self = this;
     let tracker = this.get('tracker');
     let peers = this.get('peers');
@@ -29,10 +29,10 @@ export default Ember.Service.extend({
     tracker.on('peer', function (peer) {
       peers.pushObject(peer);
       if (peer.connected) {
-        self.onPeerConnect(peer);
+        self.onPeerConnect(peer, user, callback);
       } else {
         peer.once('connect', function () {
-          self.onPeerConnect(peer);
+          self.onPeerConnect(peer, user, callback);
         });
       }
     });
@@ -68,15 +68,14 @@ export default Ember.Service.extend({
       if (peer.connected) peer.send(JSON.stringify(obj))
     });
   },
-  onPeerConnect : function (peer) {
-    let self = this;
+  onPeerConnect : function (peer, user) {
     let peers = this.get('peers');
-    let state = this.get('state');
     peer.on('data', onMessage);
     peer.on('close', onClose);
     peer.on('error', onClose);
     peer.on('end', onClose);
-    peer.send(JSON.stringify({ username: self.username, state: state }));
+    peer.send(JSON.stringify(user));
+    console.log(JSON.stringify(user));
 
     function onClose () {
       peer.removeListener('data', onMessage)
@@ -86,33 +85,14 @@ export default Ember.Service.extend({
       peers.splice(peers.indexOf(peer), 1)
     }
 
-    function onMessage (data) {
-      let state = self.get('state');
+    function onMessage (data, callback) {
       try {
         data = JSON.parse(data);
       } catch (err) {
         console.error(err.message);
       }
-      if (data.username) {
-        peer.username = data.username;
-      }
-      if (data.state) {
-        Object.keys(data.state)
-          .filter(function (id) {
-            return !state[id]
-          })
-          .forEach(function (id) {
-            state[id] = data.state[id]
-          })
-      }
-      if (data.pt) {
-        if (!state[data.i]) {
-          state[data.i] = { pts: [] };
-        }
-        state[data.i].pts.push(data.pt);
-      }
-      if (data.infoHash) {
-        state[data.infoHash] = data;
+      if (typeof callback === 'function') {
+        callback(data);
       }
     }
   }
