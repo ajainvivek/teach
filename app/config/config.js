@@ -77,7 +77,7 @@ export default Ember.Object.create({
               ]
             }
           ],
-          "timeout": 20,
+          "timeout": 10,
           "isCompleted": true
         }
       },
@@ -123,7 +123,7 @@ export default Ember.Object.create({
               ]
             }
           ],
-          "timeout": 20,
+          "timeout": 10,
           "isCompleted": true
         }
       },
@@ -258,7 +258,7 @@ export default Ember.Object.create({
             }
           ],
           "answer": [
-            "1"
+            "2"
           ],
           "chart": "pie",
           "responses": [
@@ -303,7 +303,7 @@ export default Ember.Object.create({
             }
           ],
           "answer": [
-            "1"
+            "2"
           ],
           "chart": "pie",
           "responses": [
