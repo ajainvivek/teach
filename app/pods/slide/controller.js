@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import _array from 'lodash/array';
 
 const {
   $,
@@ -11,6 +12,18 @@ export default Ember.Controller.extend({
   questionData: '',
   timeCompleted: false,
   qsContext: null,
+  userList: [],
+  isUserListFilled : function () {
+    let userList = this.get('userList');
+    return (userList.length > 0) ? true : false;
+  }.property('userList'),
+  initialize : function () {
+    this.EventBus.subscribe('onSlideDataUpdate', this, function (slideData) {
+      let userList = this.get('userList');
+      let updateUserList = _array.union(userList, slideData.users);
+      this.set('userList', updateUserList);
+    });
+  }.on('init'),
   actions:{
     slideQuestion: function(){
       this.set('questionData', '');
@@ -41,11 +54,12 @@ export default Ember.Controller.extend({
 
   broadcastData : function (slideData) {
     let webrtc = this.get('webrtc');
-    let callback = function (data) {
-      this.EventBus.publish('slideData', data);
-    };
     if (slideData) {
-      webrtc.broadcast(slideData, callback);
+      webrtc.broadcast(slideData);
     }
+  },
+
+  publishData : function (slideData) {
+    this.EventBus.publish('onSlideDataUpdate', slideData);
   }
 });

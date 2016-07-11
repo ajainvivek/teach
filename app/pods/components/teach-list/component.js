@@ -1,17 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  attendees : [{
-    name : "Ajain",
-    isPresenter : true
-  },{
-    name : "Sett",
-    isPresenter : false
-  },{
-    name : "Sajith",
-    isPresenter : false
-  },{
-    name : "Umesh",
-    isPresenter : false
-  }]
+  data : [],
+  isListFilled : function () {
+    let list = this.get('data');
+    return (list.length > 0) ? true : false;
+  }.property('data')
 });

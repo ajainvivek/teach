@@ -16,8 +16,8 @@ export default Ember.Service.extend({
   state : {},
   peers : [],
   torrentData : {},
-  user: {},
-  initialize : function (user, callback) {
+  slideData: {},
+  initialize : function (slideData, callback) {
     let self = this;
     let tracker = this.get('tracker');
     let peers = this.get('peers');
@@ -29,10 +29,10 @@ export default Ember.Service.extend({
     tracker.on('peer', function (peer) {
       peers.pushObject(peer);
       if (peer.connected) {
-        self.onPeerConnect(peer, user, callback);
+        self.onPeerConnect(peer, slideData, callback);
       } else {
         peer.once('connect', function () {
-          self.onPeerConnect(peer, user, callback);
+          self.onPeerConnect(peer, slideData, callback);
         });
       }
     });
@@ -68,14 +68,17 @@ export default Ember.Service.extend({
       if (peer.connected) peer.send(JSON.stringify(obj))
     });
   },
-  onPeerConnect : function (peer, user) {
+  onPeerConnect : function (peer, slideData, callback) {
     let peers = this.get('peers');
     peer.on('data', onMessage);
     peer.on('close', onClose);
     peer.on('error', onClose);
     peer.on('end', onClose);
-    peer.send(JSON.stringify(user));
-    console.log(JSON.stringify(user));
+    peer.send(JSON.stringify(slideData));
+
+    if (typeof callback === 'function') {
+      callback(slideData);
+    }
 
     function onClose () {
       peer.removeListener('data', onMessage)
@@ -85,7 +88,7 @@ export default Ember.Service.extend({
       peers.splice(peers.indexOf(peer), 1)
     }
 
-    function onMessage (data, callback) {
+    function onMessage (data) {
       try {
         data = JSON.parse(data);
       } catch (err) {

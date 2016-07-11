@@ -1,17 +1,19 @@
-{{#paper-content class="md-whiteframe-z1 list-demo"}}
-  {{#paper-list}}
-    {{#each attendees as |attendee|}}
-      {{#paper-item}}
-        <div class="md-list-item-text list">
-          {{#if attendee.isPresenter}}
-            {{paper-icon 'desktop-mac'}}
-          {{else}}
-            {{paper-icon 'person'}}
-          {{/if}}
-          <span>{{attendee.name}}</span>
-        </div>
-      {{/paper-item}}
-      {{paper-divider}}
-    {{/each}}
-  {{/paper-list}}
-{{/paper-content}}
+{{#if isListFilled}}
+  {{#paper-content class="md-whiteframe-z1 list-demo"}}
+    {{#paper-list}}
+      {{#each data as |attendee|}}
+        {{#paper-item}}
+          <div class="md-list-item-text list">
+            {{#if attendee.isPresenter}}
+              {{paper-icon 'desktop-mac'}}
+            {{else}}
+              {{paper-icon 'person'}}
+            {{/if}}
+            <span>{{attendee.name}}</span>
+          </div>
+        {{/paper-item}}
+        {{paper-divider}}
+      {{/each}}
+    {{/paper-list}}
+  {{/paper-content}}
+{{/if}}

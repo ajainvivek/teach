@@ -10,8 +10,10 @@
     <div class="small-12 medium-12 large-12 columns">
       {{teach-reveal-slide data=data slideQuestion=(action 'slideQuestion') slideInfo=(action 'slideInfo')}}
     </div>
-    <div id="right-panel">
-      {{teach-list}}
-    </div>
+    {{#if isUserListFilled}}
+      <div id="right-panel">
+        {{teach-list data=userList}}
+      </div>
+    {{/if}}  
   </div>
 </div>
