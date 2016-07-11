@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import _lang from 'lodash/lang';
 
 export default Ember.Component.extend({
 
@@ -10,6 +9,8 @@ export default Ember.Component.extend({
     isSubmitDisabled: false,
     timeToShow: "",
     isTimerToContinue: true,
+    isQsTimeCompleted: false,
+    correctAnswerArray: [],
 
     didInsertElement: function(){
       //this.set('question', this.get('obj').slides[0].qs);
@@ -25,6 +26,7 @@ export default Ember.Component.extend({
 
     invokeTimer : function () {
       this.clearTimer();
+      this.set('isSubmitDisabled', false);
       this.startTimer();
     }.observes('question'),
 
@@ -69,15 +71,32 @@ export default Ember.Component.extend({
           self.set('timeLeft',time-1);
           self.startTimer();
         }else{
-          console.log('time completed');
           self.sendAction('questionTimeCompleted');
-          self.set('isTimerToContinue', false);
           self.set('isSubmitDisabled', true);
+          self.clearTimer();
+          self.setCorrectAnswer();
         }
       },1000);
     },
     clearTimer: function () {
       window.clearInterval(this.timer);
+      this.set('isTimerToContinue', false);
       this.set("timeLeft", this.get('question').timeout);
+      this.set('isQsTimeCompleted', false);
+      this.set('correctAnswerArray',[]);
+      this.set('userAnswer',[]);
+      this.set('selectedValue', '');
+    },
+
+    setCorrectAnswer: function(){
+      let self = this;
+      for(let i=0; i< this.get('question').answer.length; i++){
+        for(let j=0; j<this.get('question').options.length; j++){
+          if(this.get('question').answer[i] == this.get('question').options[j].id){
+            self.get('correctAnswerArray').push(this.get('question').options[j].value);
+          }
+        }
+      }
+      this.set('isQsTimeCompleted', true);
     }
 });
