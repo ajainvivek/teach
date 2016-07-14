@@ -9,6 +9,7 @@ export default Controller.extend({
   name: '',
   slide: inject.controller('slide'),
   webrtc: inject.service('webrtc'),
+  isPresenter: false,
   guid : function () {
     function s4() {
       return Math.floor((1 + Math.random()) * 0x10000)
@@ -25,14 +26,15 @@ export default Controller.extend({
       let publishData = slideContext.publishData;
       let name = this.get('name');
       let guid = this.get('guid');
+      let isPresenter = this.get('isPresenter');
       let slideData = {
         users : [{
           id : guid,
           name : name,
-          isPresenter: false
+          isPresenter: isPresenter
         }]
       };
-      webrtc.initialize(slideData, publishData.bind(slideContext));
+      webrtc.initialize(slideData, publishData.bind(slideContext), false);
       this.transitionTo('slide');
     }
   }

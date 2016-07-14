@@ -67,3 +67,9 @@ $row-width: rem-calc(1280);
     font-size: 14px;
   }
 }
+
+.landing-wrapper {
+  overflow-y: scroll;
+  display: block;
+  height: calc(100vh - 45px);
+}

@@ -17,10 +17,13 @@ export default Ember.Service.extend({
   peers : [],
   torrentData : {},
   slideData: {},
-  initialize : function (slideData, callback) {
+  random: false,
+  initialize : function (slideData, callback, random) {
     let self = this;
     let tracker = this.get('tracker');
     let peers = this.get('peers');
+
+    this.set('random', random);
 
     if (!Peer.WEBRTC_SUPPORT) {
       window.alert('This browser is unsupported. Please use a browser with WebRTC support.')
@@ -42,11 +45,11 @@ export default Ember.Service.extend({
   }.property(),
   tracker : function () {
     let peerId = this.get('peerId');
-    //let guid = this.get('guid')();
+    let guid = this.get('random') ? new BufferBrowserify.Buffer(hat(160), 'hex') : new BufferBrowserify.Buffer(20);
     return new Tracker({
       peerId: peerId,
       announce: TRACKER_URL,
-      infoHash: new BufferBrowserify.Buffer(20)
+      infoHash: guid
     });
   }.property(),
   getClient: function () {

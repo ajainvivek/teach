@@ -11,28 +11,30 @@
     </div>
   </div>
   <div class="owl-carousel owl-theme">
-    {{#paper-card class="card"}}
-        <div class="row">
-          <div class="columns">
-              <img src="http://d1zlh37f1ep3tj.cloudfront.net/wp/wblob/54592E651337D2/22DA/3E75E5/_cCyPoB9Eb1_JTP8ZL_ZuA/EmilysQuotes.Com-Intelligence-teach-learning-Benjamin-Franklin.jpg">
+    {{#each data as |presentation|}}
+      {{#paper-card class="card"}}
+          <div class="row">
+            <div class="columns">
+                <img src={{presentation.snapshotImg}}>
+            </div>
           </div>
-        </div>
 
-        <div class = "row">
-          <div class = "small-12 medium-12 large-12 columns desc">
-              <h2>Ajain Vivek</h2>
-              <p>ES6 - Zombie Attack - Eps 1</p>
+          <div class = "row">
+            <div class = "small-12 medium-12 large-12 columns desc">
+                <h2>{{presentation.author}}</h2>
+                <p>{{presentation.title}}</p>
+            </div>
           </div>
-        </div>
-        {{paper-divider}}
-        <div class = "row button-bar">
-          <div class = "small-6 medium-6 large-6 columns">
-            {{#paper-button primary=true raised=true action="present"}}Present{{/paper-button}}
+          {{paper-divider}}
+          <div class = "row button-bar">
+            <div class = "small-6 medium-6 large-6 columns">
+              {{#paper-button primary=true raised=true action=(action "present" presentation.id)}}Present{{/paper-button}}
+            </div>
+            <div class = "small-6 medium-6 large-6 columns">
+              {{#paper-button raised=true action=(action "view" presentation.id)}}View{{/paper-button}}
+            </div>
           </div>
-          <div class = "small-6 medium-6 large-6 columns">
-            {{#paper-button raised=true action="view"}}View{{/paper-button}}
-          </div>
-        </div>
-    {{/paper-card}}
+      {{/paper-card}}
+    {{/each}}
   </div>
 </div>

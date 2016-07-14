@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import _array from 'lodash/array';
+import _collection from 'lodash/collection';
 
 const {
   $,
@@ -19,8 +20,10 @@ export default Ember.Controller.extend({
   }.property('userList'),
   initialize : function () {
     this.EventBus.subscribe('onSlideDataUpdate', this, function (slideData) {
-      let userList = this.get('userList');
-      let updateUserList = _array.union(userList, slideData.users);
+      let userList = this.get('userList').concat(slideData.users);
+      let updateUserList = _array.uniq(userList, function (user) {
+        return user.id;
+      });
       this.set('userList', updateUserList);
     });
   }.on('init'),
