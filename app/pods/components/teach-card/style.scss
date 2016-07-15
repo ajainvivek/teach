@@ -36,8 +36,8 @@
   }
 
   .card {
-    width : 320px;
-    height : 360px;
+    width : 250px;
+    height : 100%;
 
     .columns {
       padding-left: 0;
@@ -46,7 +46,7 @@
 
     .button-bar {
       button {
-        width: 145px;
+        width: 100px;
       }
     }
 
@@ -58,6 +58,8 @@
       }
       p {
         font-weight: bold;
+        padding: 0px;
+        margin: 0px;
       }
     }
   }
