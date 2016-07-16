@@ -13,6 +13,8 @@ export default Ember.Controller.extend({
   timeCompleted: false,
   qsContext: null,
   userList: [],
+  user: {},
+  config: {},
   isUserListFilled : function () {
     let userList = this.get('userList');
     return (userList.length > 0) ? true : false;

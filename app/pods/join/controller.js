@@ -64,7 +64,10 @@ export default Controller.extend({
 
       this.transitionTo('slide', {
         queryParams: {
-          id: slideId
+          id: slideId,
+          isPresenter: isPresenter,
+          name: name,
+          userId: guid
         }
       });
     }
