@@ -11,6 +11,16 @@ export default Controller.extend({
   landing: inject.controller('landing'),
   webrtc: inject.service('webrtc'),
   isPresenter: false,
+  ajax: Ember.inject.service(),
+  getData: function () {
+    return this.get('ajax').request('/data/es6_ep1.json');
+  },
+  loadSlideData: function() {
+    let slide = this.get('slide');
+    this.getData().then(function (data) {
+      slide.set('data', data);
+    });
+  },
   guid : function () {
     function s4() {
       return Math.floor((1 + Math.random()) * 0x10000)

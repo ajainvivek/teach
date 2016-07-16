@@ -7,6 +7,7 @@ export default Ember.Route.extend({
       controller.set('slideId', params.queryParams.id);
       controller.set('userPeerId', params.queryParams.peerId);
       controller.set('infoHash', params.queryParams.infoHash);
+      controller.loadSlideData(params.queryParams.id);
     } else {
       controller.transitionTo('landing');
     }

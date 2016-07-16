@@ -82,10 +82,12 @@ export default Controller.extend({
         let liveIndex = _array.findIndex(livePresentations, {
           userPeerId : data.peerId
         });
-        let index = _array.findIndex(presentations, {
-          id : livePresentations[liveIndex].id
-        });
-        Ember.set(presentations[index], 'isLive', false);
+        if (liveIndex > -1) {
+          let index = _array.findIndex(presentations, {
+            id : livePresentations[liveIndex].id
+          });
+          Ember.set(presentations[index], 'isLive', false);
+        }
       }
 
 
