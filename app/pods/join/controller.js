@@ -8,6 +8,7 @@ const {
 export default Controller.extend({
   name: '',
   slide: inject.controller('slide'),
+  landing: inject.controller('landing'),
   webrtc: inject.service('webrtc'),
   isPresenter: false,
   guid : function () {
@@ -27,6 +28,8 @@ export default Controller.extend({
       let name = this.get('name');
       let guid = this.get('guid');
       let isPresenter = this.get('isPresenter');
+      let landing = this.get('landing');
+      let slideId = this.get('slideId');
       let slideData = {
         users : [{
           id : guid,
@@ -34,7 +37,18 @@ export default Controller.extend({
           isPresenter: isPresenter
         }]
       };
-      webrtc.initialize(slideData, publishData.bind(slideContext), false);
+      if (isPresenter) {
+        landing.broadcastPresentation.call(landing, [{
+          id : slideId,
+          name : name,
+          isPresenter: isPresenter
+        }]);
+      }
+      // webrtc.initialize({
+      //   data: slideData,
+      //   callback: publishData.bind(slideContext),
+      //   random: false
+      // });
       this.transitionTo('slide');
     }
   }

@@ -18,7 +18,11 @@ export default Ember.Service.extend({
   torrentData : {},
   slideData: {},
   random: false,
-  initialize : function (slideData, callback, random) {
+  infoHash: '',
+  initialize : function (options) {
+    let slideData = options.data;
+    let callback = options.callback;
+    let random = options.random;
     let self = this;
     let tracker = this.get('tracker');
     let peers = this.get('peers');
@@ -45,11 +49,12 @@ export default Ember.Service.extend({
   }.property(),
   tracker : function () {
     let peerId = this.get('peerId');
+    let infoHash = this.get('infoHash');
     let guid = this.get('random') ? new BufferBrowserify.Buffer(hat(160), 'hex') : new BufferBrowserify.Buffer(20);
     return new Tracker({
       peerId: peerId,
       announce: TRACKER_URL,
-      infoHash: guid
+      infoHash: infoHash ? infoHash : guid
     });
   }.property(),
   getClient: function () {
@@ -77,10 +82,12 @@ export default Ember.Service.extend({
     peer.on('close', onClose);
     peer.on('error', onClose);
     peer.on('end', onClose);
-    peer.send(JSON.stringify(slideData));
+    if(slideData) {
+      peer.send(JSON.stringify(slideData));
 
-    if (typeof callback === 'function') {
-      callback(slideData);
+      if (typeof callback === 'function') {
+        callback(slideData);
+      }
     }
 
     function onClose () {

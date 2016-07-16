@@ -27,12 +27,24 @@
           </div>
           {{paper-divider}}
           <div class = "row button-bar">
-            <div class = "small-6 medium-6 large-6 columns">
-              {{#paper-button primary=true raised=true action=(action "present" presentation.id)}}Present{{/paper-button}}
-            </div>
-            <div class = "small-6 medium-6 large-6 columns">
-              {{#paper-button raised=true action=(action "view" presentation.id)}}View{{/paper-button}}
-            </div>
+            {{#if presentation.isLive}}
+              <div class = "small-12 medium-12 large-12 columns">
+                {{#paper-button primary=true raised=true action=(action "present" presentation.id) class="fullWidth"}}
+                  Join
+                {{/paper-button}}
+              </div>
+            {{else}}
+              <div class = "small-6 medium-6 large-6 columns">
+                {{#paper-button primary=true raised=true action=(action "present" presentation.id)}}
+                  Present
+                {{/paper-button}}
+              </div>
+            {{/if}}
+            {{#unless presentation.isLive}}
+              <div class = "small-6 medium-6 large-6 columns">
+                {{#paper-button raised=true action=(action "view" presentation.id)}}View{{/paper-button}}
+              </div>
+            {{/unless}}
           </div>
       {{/paper-card}}
     {{/each}}

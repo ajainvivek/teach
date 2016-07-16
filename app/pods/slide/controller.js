@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import _array from 'lodash/array';
-import _collection from 'lodash/collection';
 
 const {
   $,

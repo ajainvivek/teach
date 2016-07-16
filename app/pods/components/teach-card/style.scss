@@ -47,6 +47,12 @@
     .button-bar {
       button {
         width: 100px;
+
+        &.fullWidth {
+          width: 230px;
+          margin-left: 10px;
+          background: #658343;
+        }
       }
     }
 
