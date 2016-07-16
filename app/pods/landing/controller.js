@@ -42,17 +42,19 @@ export default Ember.Controller.extend({
     this.set('featuredSlides', featuredSlides);
   }.on('init'),
   actions: {
-    joinPresentation () {
+    joinPresentation (id) {
       this.transitionTo('join', {
         queryParams: {
-          isPresenter: false
+          isPresenter: false,
+          id: id
         }
       });
     },
-    hostPresentation () {
+    hostPresentation (id) {
       this.transitionTo('join', {
         queryParams: {
-          isPresenter: true
+          isPresenter: true,
+          id: id
         }
       });
     },

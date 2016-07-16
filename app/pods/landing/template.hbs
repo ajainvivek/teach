@@ -1,8 +1,8 @@
 <div class="landing-wrapper">
-  {{#if isFeaturedSlidesFilled}}
-    {{teach-card present=(action 'hostPresentation') view=(action 'goToSlide') data=featuredSlides category="Featured Presentation"}}
-  {{/if}}
   {{#if isLiveSlidesFilled}}
     {{teach-card present=(action 'joinPresentation') view=(action 'goToSlide') data=liveSlides category="Live Presentation"}}
+  {{/if}}
+  {{#if isFeaturedSlidesFilled}}
+    {{teach-card present=(action 'hostPresentation') view=(action 'goToSlide') data=featuredSlides category="Featured Presentation"}}
   {{/if}}
 </div>
