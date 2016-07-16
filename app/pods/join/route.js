@@ -5,6 +5,7 @@ export default Ember.Route.extend({
     if (params.queryParams.id) {
       controller.set('isPresenter', params.queryParams.isPresenter);
       controller.set('slideId', params.queryParams.id);
+      controller.set('userPeerId', params.queryParams.peerId);
     } else {
       controller.transitionTo('landing');
     }

@@ -43,10 +43,11 @@ export default Controller.extend({
     }];
 
     let webrtc = this.get('webrtc');
-    webrtc.initialize({
+    let tracker = webrtc.initialize({
       callback: publishPresentation.bind(self),
       random: false
     });
+    this.set('tracker', tracker);
 
     let featuredSlides = _collection.filter(presentations, {
       "isLive" : false
@@ -57,12 +58,25 @@ export default Controller.extend({
     this.set('featuredSlides', featuredSlides);
 
     this.EventBus.subscribe('onPresentationDataUpdate', this, function (data) {
-      _collection.forEach(data, function (presentation) {
-        let index = _array.findIndex(presentations, {
-          id : presentation.id
+      if (!data.connectionClosed) {
+        _collection.forEach(data, function (presentation) {
+          let index = _array.findIndex(presentations, {
+            id : presentation.id
+          });
+          Ember.set(presentations[index], 'isLive', true);
         });
-        Ember.set(presentations[index], 'isLive', true);
-      });
+        this.set('livePresentations', data);
+      } else {
+        let livePresentations = this.get('livePresentations');
+        let liveIndex = _array.findIndex(livePresentations, {
+          userPeerId : data.peerId
+        });
+        let index = _array.findIndex(presentations, {
+          id : livePresentations[liveIndex].id
+        });
+        Ember.set(presentations[index], 'isLive', false);
+      }
+
 
       let featuredSlides = _collection.filter(presentations, {
         "isLive" : false
@@ -84,18 +98,22 @@ export default Controller.extend({
   },
   actions: {
     joinPresentation (id) {
+      let peerId = this.get('tracker').peerId;
       this.transitionTo('join', {
         queryParams: {
           isPresenter: false,
-          id: id
+          id: id,
+          peerId: peerId
         }
       });
     },
     hostPresentation (id) {
+      let peerId = this.get('tracker').peerId;
       this.transitionTo('join', {
         queryParams: {
           isPresenter: true,
-          id: id
+          id: id,
+          peerId: peerId
         }
       });
     },

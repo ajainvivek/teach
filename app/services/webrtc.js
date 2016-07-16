@@ -18,7 +18,7 @@ export default Ember.Service.extend({
   torrentData : {},
   slideData: {},
   random: false,
-  infoHash: '',
+  infoHash: undefined,
   initialize : function (options) {
     let slideData = options.data;
     let callback = options.callback;
@@ -43,6 +43,7 @@ export default Ember.Service.extend({
         });
       }
     });
+    return tracker;
   },
   peerId : function () {
     return new BufferBrowserify.Buffer(hat(160), 'hex');
@@ -91,11 +92,15 @@ export default Ember.Service.extend({
     }
 
     function onClose () {
-      peer.removeListener('data', onMessage)
-      peer.removeListener('close', onClose)
-      peer.removeListener('error', onClose)
-      peer.removeListener('end', onClose)
-      peers.splice(peers.indexOf(peer), 1)
+      peer.removeListener('data', onMessage);
+      peer.removeListener('close', onClose);
+      peer.removeListener('error', onClose);
+      peer.removeListener('end', onClose);
+      peers.removeAt(peers.indexOf(peer));
+      callback({
+        peerId: peer.id,
+        connectionClosed: true
+      });
     }
 
     function onMessage (data) {

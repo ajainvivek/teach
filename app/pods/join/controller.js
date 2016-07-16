@@ -30,6 +30,7 @@ export default Controller.extend({
       let isPresenter = this.get('isPresenter');
       let landing = this.get('landing');
       let slideId = this.get('slideId');
+      let userPeerId = this.get('userPeerId');
       let slideData = {
         users : [{
           id : guid,
@@ -41,7 +42,8 @@ export default Controller.extend({
         landing.broadcastPresentation.call(landing, [{
           id : slideId,
           name : name,
-          isPresenter: isPresenter
+          isPresenter: isPresenter,
+          userPeerId: userPeerId
         }]);
       }
       // webrtc.initialize({
