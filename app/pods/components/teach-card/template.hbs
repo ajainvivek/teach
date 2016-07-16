@@ -29,13 +29,13 @@
           <div class = "row button-bar">
             {{#if presentation.isLive}}
               <div class = "small-12 medium-12 large-12 columns">
-                {{#paper-button primary=true raised=true action=(action "present" presentation.id) class="fullWidth"}}
+                {{#paper-button primary=true raised=true action=(action "present" presentation) class="fullWidth"}}
                   Join
                 {{/paper-button}}
               </div>
             {{else}}
               <div class = "small-6 medium-6 large-6 columns">
-                {{#paper-button primary=true raised=true action=(action "present" presentation.id)}}
+                {{#paper-button primary=true raised=true action=(action "present" presentation)}}
                   Present
                 {{/paper-button}}
               </div>

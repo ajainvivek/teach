@@ -24,10 +24,12 @@ export default Ember.Service.extend({
     let callback = options.callback;
     let random = options.random;
     let self = this;
-    let tracker = this.get('tracker');
+    let tracker = this.tracker(random, options.infoHash);
     let peers = this.get('peers');
 
+    this.set('infoHash', options.infoHash);
     this.set('random', random);
+
 
     if (!Peer.WEBRTC_SUPPORT) {
       window.alert('This browser is unsupported. Please use a browser with WebRTC support.')
@@ -48,16 +50,15 @@ export default Ember.Service.extend({
   peerId : function () {
     return new BufferBrowserify.Buffer(hat(160), 'hex');
   }.property(),
-  tracker : function () {
+  tracker : function (random, infoHash) {
     let peerId = this.get('peerId');
-    let infoHash = this.get('infoHash');
-    let guid = this.get('random') ? new BufferBrowserify.Buffer(hat(160), 'hex') : new BufferBrowserify.Buffer(20);
+    let guid = random ? new BufferBrowserify.Buffer(hat(160), 'hex') : new BufferBrowserify.Buffer(20);
     return new Tracker({
       peerId: peerId,
       announce: TRACKER_URL,
       infoHash: infoHash ? infoHash : guid
     });
-  }.property(),
+  },
   getClient: function () {
     let peerId = this.get('peerId');
     return thunky(function (cb) {

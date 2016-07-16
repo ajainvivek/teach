@@ -38,19 +38,30 @@ export default Controller.extend({
           isPresenter: isPresenter
         }]
       };
+
       if (isPresenter) {
+        let tracker = webrtc.initialize({
+          data: slideData,
+          callback: publishData.bind(slideContext),
+          random: true
+        });
         landing.broadcastPresentation.call(landing, [{
           id : slideId,
           name : name,
           isPresenter: isPresenter,
-          userPeerId: userPeerId
+          userPeerId: userPeerId,
+          infoHash: tracker.infoHash
         }]);
+      } else {
+        let infoHash = this.get('infoHash');
+        webrtc.initialize({
+          data: slideData,
+          callback: publishData.bind(slideContext),
+          random: true,
+          infoHash: infoHash
+        });
       }
-      // webrtc.initialize({
-      //   data: slideData,
-      //   callback: publishData.bind(slideContext),
-      //   random: false
-      // });
+
       this.transitionTo('slide', {
         queryParams: {
           id: slideId

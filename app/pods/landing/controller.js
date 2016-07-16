@@ -63,7 +63,11 @@ export default Controller.extend({
           let index = _array.findIndex(presentations, {
             id : presentation.id
           });
+          let liveIndex = _array.findIndex(data, {
+            id : presentation.id
+          });
           Ember.set(presentations[index], 'isLive', true);
+          Ember.set(presentations[index], 'infoHash', data[liveIndex].infoHash);
         });
         this.set('livePresentations', data);
       } else {
@@ -97,22 +101,23 @@ export default Controller.extend({
     }
   },
   actions: {
-    joinPresentation (id) {
+    joinPresentation (data) {
       let peerId = this.get('tracker').peerId;
       this.transitionTo('join', {
         queryParams: {
           isPresenter: false,
-          id: id,
+          id: data.id,
+          infoHash: data.infoHash,
           peerId: peerId
         }
       });
     },
-    hostPresentation (id) {
+    hostPresentation (data) {
       let peerId = this.get('tracker').peerId;
       this.transitionTo('join', {
         queryParams: {
           isPresenter: true,
-          id: id,
+          id: data.id,
           peerId: peerId
         }
       });

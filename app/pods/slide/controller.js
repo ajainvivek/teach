@@ -62,6 +62,7 @@ export default Ember.Controller.extend({
   },
 
   publishData : function (slideData) {
+    console.log(slideData);
     this.EventBus.publish('onSlideDataUpdate', slideData);
   }
 });
