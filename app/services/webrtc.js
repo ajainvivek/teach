@@ -8,6 +8,7 @@ import Tracker from 'npm:bittorrent-tracker/client';
 //import videostream from 'npm:videostream';
 import WebTorrent from 'npm:webtorrent';
 import BufferBrowserify from 'npm:buffer-browserify';
+import _array from 'lodash/array';
 
 const TRACKER_URL = 'wss://tracker.webtorrent.io';
 window.WEBTORRENT_ANNOUNCE = [ TRACKER_URL ];
@@ -26,6 +27,7 @@ export default Ember.Service.extend({
     let self = this;
     let tracker = this.tracker(random, options.infoHash);
     let peers = this.get('peers');
+    let onPeerConnectCallback = options.onPeerConnect;
 
     this.set('infoHash', options.infoHash);
     this.set('random', random);
@@ -36,12 +38,15 @@ export default Ember.Service.extend({
     }
     tracker.start();
     tracker.on('peer', function (peer) {
-      peers.pushObject(peer);
+      peers.pushObject({
+        infoHash: tracker.infoHash,
+        peer: peer
+      });
       if (peer.connected) {
-        self.onPeerConnect(peer, slideData, callback);
+        self.onPeerConnect(peer, slideData, callback, onPeerConnectCallback);
       } else {
         peer.once('connect', function () {
-          self.onPeerConnect(peer, slideData, callback);
+          self.onPeerConnect(peer, slideData, callback, onPeerConnectCallback);
         });
       }
     });
@@ -72,13 +77,15 @@ export default Ember.Service.extend({
       cb(null, client);
     });
   },
-  broadcast : function (obj) {
+  broadcast : function (obj, infoHash) {
     let peers = this.get('peers');
-    peers.forEach(function (peer) {
-      if (peer.connected) peer.send(JSON.stringify(obj))
+    peers.forEach(function (data) {
+      if (data.infoHash === infoHash) {
+        if (data.peer.connected) data.peer.send(JSON.stringify(obj))
+      }
     });
   },
-  onPeerConnect : function (peer, slideData, callback) {
+  onPeerConnect : function (peer, slideData, callback, onPeerConnectCallback) {
     let peers = this.get('peers');
     peer.on('data', onMessage);
     peer.on('close', onClose);
@@ -91,13 +98,17 @@ export default Ember.Service.extend({
         callback(slideData);
       }
     }
-
+    //Once Peer is connected
+    if (typeof onPeerConnectCallback === 'function') {
+      onPeerConnectCallback();
+    }
+    
     function onClose () {
       peer.removeListener('data', onMessage);
       peer.removeListener('close', onClose);
       peer.removeListener('error', onClose);
       peer.removeListener('end', onClose);
-      peers.removeAt(peers.indexOf(peer));
+      peers.removeAt(_array.findIndex(peers, {peer : peer}));
       callback({
         peerId: peer.id,
         connectionClosed: true

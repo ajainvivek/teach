@@ -43,9 +43,16 @@ export default Controller.extend({
     }];
 
     let webrtc = this.get('webrtc');
+    let onPeerConnect = function () {
+      let livePresentations = this.get('livePresentations');
+      if (livePresentations) {
+        this.broadcastPresentation(livePresentations);
+      }
+    };
     let tracker = webrtc.initialize({
       callback: publishPresentation.bind(self),
-      random: false
+      random: false,
+      onPeerConnect: onPeerConnect.bind(self)
     });
     this.set('tracker', tracker);
 
@@ -96,8 +103,9 @@ export default Controller.extend({
   },
   broadcastPresentation : function (data) {
     let webrtc = this.get('webrtc');
+    let infoHash = this.get('tracker').infoHash;
     if (data) {
-      webrtc.broadcast(data);
+      webrtc.broadcast(data, infoHash);
     }
   },
   actions: {
@@ -114,11 +122,13 @@ export default Controller.extend({
     },
     hostPresentation (data) {
       let peerId = this.get('tracker').peerId;
+      let infoHash = this.get('tracker').infoHash;
       this.transitionTo('join', {
         queryParams: {
           isPresenter: true,
           id: data.id,
-          peerId: peerId
+          peerId: peerId,
+          infoHash: infoHash
         }
       });
     },
