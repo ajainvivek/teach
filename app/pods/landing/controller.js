@@ -117,8 +117,12 @@ export default Controller.extend({
         }
       });
     },
-    goToSlide () {
-      this.transitionTo('slide');
+    goToSlide (id) {
+      this.transitionTo('slide', {
+        queryParams: {
+          id: id
+        }
+      });
     }
   }
 });

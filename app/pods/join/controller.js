@@ -51,7 +51,11 @@ export default Controller.extend({
       //   callback: publishData.bind(slideContext),
       //   random: false
       // });
-      this.transitionTo('slide');
+      this.transitionTo('slide', {
+        queryParams: {
+          id: slideId
+        }
+      });
     }
   }
 });
