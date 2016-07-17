@@ -40,6 +40,7 @@
       "contentTypeScript": true,
       "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n console.log(zombie); \n var zombie = 'visible';</code></pre>",
       "qs": {
+        "id": "126",
         "type": "single",
         "title": "What will logger print ?",
         "options": [
@@ -85,6 +86,7 @@
       "contentTypeScript": true,
       "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n console.log(zombie); \n let zombie = 'visible';</code></pre>",
       "qs": {
+        "id": "127",
         "type": "single",
         "title": "What will logger print ?",
         "options": [
@@ -137,6 +139,7 @@
       "contentTypeScript": true,
       "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let zombie = 'visible'; \n console.log(zombie);</code></pre>",
       "qs": {
+        "id": "129",
         "type": "single",
         "title": "What will logger print ?",
         "options": [
@@ -188,6 +191,7 @@
       "contentTypeScript": true,
       "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n for (var i = 0; i < 5; i++) { \n  window.setTimeout(function () { \n    console.log(i); \n  }, 1000); \n } </code></pre>",
       "qs": {
+        "id": "131",
         "type": "single",
         "title": "What will logger print ?",
         "options": [
@@ -233,6 +237,7 @@
       "contentTypeScript": true,
       "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n for (let i = 0; i < 5; i++) { \n  window.setTimeout(function () { \n    console.log(i); \n  }, 1000); \n } </code></pre>",
       "qs": {
+        "id": "132",
         "type": "single",
         "title": "What will logger print ?",
         "options": [
@@ -278,6 +283,7 @@
       "contentTypeScript": true,
       "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n //Set Zombie Health \n const ZOMBIE_FULL_HEALTH = 100; \n console.log(ZOMBIE_FULL_HEALTH); \n //Set Human Health \n const HUMAN_FULL_HEALTH = 100; \n HUMAN_FULL_HEALTH = 50; \n console.log(HUMAN_FULL_HEALTH);</code></pre>",
       "qs": {
+        "id": "133",
         "type": "single",
         "title": "What will logger print ?",
         "options": [

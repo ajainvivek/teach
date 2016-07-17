@@ -55,6 +55,7 @@ export default Ember.Component.extend({
         this.set('isSubmitDisabled', true);
         this.set('isTimerToContinue', false);
         console.log(this.get('userAnswer'));
+        this.sendAction('onAnswer', this.get('userAnswer'));
       }
     },
     timer : null,

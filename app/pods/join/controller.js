@@ -73,11 +73,13 @@ export default Controller.extend({
         });
       } else {
         let infoHash = this.get('infoHash');
+        let slide = this.get('slide');
         webrtc.initialize({
           data: slideData,
           callback: publishData.bind(slideContext),
           random: true,
-          infoHash: infoHash
+          infoHash: infoHash,
+          onPeerConnect: slide.onPeerConnected.bind(slide)
         });
       }
 

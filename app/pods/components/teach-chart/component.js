@@ -25,25 +25,22 @@ export default Ember.Component.extend({
     "#FF6384",
     "#36A2EB",
     "#FFCE56",
-    "#FF6384",
-    "#36A2EB",
-    "#FFCE56"
+    "#E7E9ED",
+    "#36A2EB"
   ],
   borderColor: [
     "#FF6384",
     "#36A2EB",
     "#FFCE56",
-    "#FF6384",
-    "#36A2EB",
-    "#FFCE56"
+    "#E7E9ED",
+    "#36A2EB"
   ],
   chartOptions: {
     scales: {
         yAxes: [{
             ticks: {
                 beginAtZero:true,
-                min: 0,
-                max: 100
+                min: 0
             }
         }]
     }
@@ -55,7 +52,16 @@ export default Ember.Component.extend({
     });
     let backgroundColor = _array.take(this.get('backgroundColor'), labels.length);
     let borderColor = _array.take(this.get('borderColor'), labels.length);
-    let data = _array.fill(Array(labels.length), 0);
+    let data = _collection.reduce(questionData.responses, function (result, response) {
+      if (!result.length) {
+        result = _array.fill(Array(questionData.options.length), 0);
+      }
+      _collection.forEach(response.answer, function (answer) {
+        let index = parseInt(answer) - 1;
+        result[index] += 1;
+      });
+      return result;
+    }, []);
     this.set('barChartData', {
       labels: labels,
       datasets: [{

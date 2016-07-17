@@ -22,7 +22,8 @@ module.exports = function(environment) {
 
   ENV.contentSecurityPolicy = {
     'default-src': "'none'",
-    'script-src': "'self'",
+    'script-src': "'self' 'unsafe-inline'",
+    'style-src': "'self' 'unsafe-inline'",
     'font-src': "'self' http://fonts.gstatic.com",
     'connect-src': "'self' wss://tracker.webtorrent.io/ https://media.giphy.com/media/*",
     'img-src': "'self' data:",
