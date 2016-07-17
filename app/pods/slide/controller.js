@@ -17,6 +17,8 @@ export default Ember.Controller.extend({
   config: {},
   slideData: {},
   slides: [],
+  chartContext: null,
+  leftPanelWidth: '-275px',
   isUserListFilled : function () {
     let userList = this.get('userList');
     return (userList.length > 0) ? true : false;
@@ -46,23 +48,30 @@ export default Ember.Controller.extend({
     let data = this.get('data');
     let config = this.get('config');
     let userList = this.get('userList');
-    if(config.isPresenter) {
-      data.state = Reveal.getState();
+    if (data) {
+      if(config.isPresenter) {
+        data.state = Reveal.getState();
+      }
+      data.users = userList;
+      this.broadcastData(data, data.infoHash);
     }
-    data.users = userList;
-    this.broadcastData(data, data.infoHash);
   },
   actions:{
     slideQuestion: function(){
-      this.set('questionData', '');
       this.set('timeCompleted', false);
       let slideService = this.get('slideService');
       let slideId = slideService.getSlideId();
       this.set('questionData', this.findQuestionBySlideId(slideId).qs);
+      this.set('leftPanelWidth', '0px');
+      Ember.run.schedule("afterRender", this, function () {
+        this.get('chartContext').setBarChartData(this.get('questionData'));
+      });
+
       $('#left-panel').hide().show();
     },
 
     slideInfo: function(){
+      this.set('leftPanelWidth', '-275px');
       this.set('timeCompleted', false);
       this.set('questionData', '');
       $('#left-panel').hide();
@@ -73,12 +82,18 @@ export default Ember.Controller.extend({
     },
 
     questionTimeCompleted: function(){
-      this.set('timeCompleted', true);
+      Ember.run.schedule("afterRender", this, function () {
+        let qsData = this.get('questionData');
+        if (qsData.responses) {
+          this.get('chartContext').setPieChartData(qsData.responses, qsData.answer);
+          this.set('timeCompleted', true);
+        }
+      });
     }
   },
 
   findQuestionBySlideId: function(id){
-    let result = $.grep(this.get('data').slides, function(e){
+    let result = $.grep(this.get('slides'), function(e){
        return e.id == id;
      });
     return result[0];

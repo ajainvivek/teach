@@ -63,18 +63,17 @@
         "answer": [
           "2"
         ],
-        "chart": "pie",
+        "chart": "bar",
         "responses": [
           {
             "id": "334",
             "name": "sett",
             "answer": [
-              "1",
-              "2"
+              "3"
             ]
           }
         ],
-        "timeout": 10,
+        "timeout": 45,
         "isCompleted": true
       }
     },
@@ -109,7 +108,7 @@
         "answer": [
           "2"
         ],
-        "chart": "pie",
+        "chart": "bar",
         "responses": [
           {
             "id": "334",
@@ -120,7 +119,7 @@
             ]
           }
         ],
-        "timeout": 10,
+        "timeout": 45,
         "isCompleted": true
       }
     },
@@ -161,7 +160,7 @@
         "answer": [
           "2"
         ],
-        "chart": "pie",
+        "chart": "bar",
         "responses": [
           {
             "id": "334",
@@ -171,7 +170,7 @@
             ]
           }
         ],
-        "timeout": 20,
+        "timeout": 45,
         "isCompleted": true
       }
     },
@@ -212,7 +211,7 @@
         "answer": [
           "1"
         ],
-        "chart": "pie",
+        "chart": "bar",
         "responses": [
           {
             "id": "334",
@@ -222,7 +221,7 @@
             ]
           }
         ],
-        "timeout": 20,
+        "timeout": 45,
         "isCompleted": true
       }
     },
@@ -257,7 +256,7 @@
         "answer": [
           "2"
         ],
-        "chart": "pie",
+        "chart": "bar",
         "responses": [
           {
             "id": "334",
@@ -267,7 +266,7 @@
             ]
           }
         ],
-        "timeout": 20,
+        "timeout": 45,
         "isCompleted": true
       }
     },
@@ -302,7 +301,7 @@
         "answer": [
           "2"
         ],
-        "chart": "pie",
+        "chart": "bar",
         "responses": [
           {
             "id": "334",
@@ -312,16 +311,11 @@
             ]
           }
         ],
-        "timeout": 20,
+        "timeout": 45,
         "isCompleted": true
       }
     }
   ],
   "users": [
-    {
-      "id": "1",
-      "name": "Sajith",
-      "isPrensenter": false
-    }
   ]
 }

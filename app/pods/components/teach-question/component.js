@@ -14,17 +14,16 @@ export default Ember.Component.extend({
 
     didInsertElement: function(){
       //this.set('question', this.get('obj').slides[0].qs);
-      if(this.get('question').type === 'single'){
-        this.set('isSingleSelection', true);
-      }else{
-        this.set('isSingleSelection', false);
-      }
-
       this.set('timeLeft', this.get('question').timeout);
       this.startTimer();
     },
 
     invokeTimer : function () {
+      if(this.get('question').type === 'single'){
+        this.set('isSingleSelection', true);
+      }else{
+        this.set('isSingleSelection', false);
+      }
       this.clearTimer();
       this.set('isSubmitDisabled', false);
       this.startTimer();
@@ -90,10 +89,12 @@ export default Ember.Component.extend({
 
     setCorrectAnswer: function(){
       let self = this;
-      for(let i=0; i< this.get('question').answer.length; i++){
-        for(let j=0; j<this.get('question').options.length; j++){
-          if(this.get('question').answer[i] == this.get('question').options[j].id){
-            self.get('correctAnswerArray').push(this.get('question').options[j].value);
+      if (this.get('question').answer) {
+        for(let i=0; i< this.get('question').answer.length; i++){
+          for(let j=0; j<this.get('question').options.length; j++){
+            if(this.get('question').answer[i] == this.get('question').options[j].id){
+              self.get('correctAnswerArray').push(this.get('question').options[j].value);
+            }
           }
         }
       }
