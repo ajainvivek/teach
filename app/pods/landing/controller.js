@@ -50,13 +50,15 @@ export default Controller.extend({
     }];
 
     let webrtc = this.get('webrtc');
-    let onPeerConnect = function () {
-      let livePresentations = this.get('livePresentations');
-      let currentPresentation = this.get('currentPresentation');
-      if (livePresentations) {
-        this.broadcastPresentation(livePresentations);
-      } else {
-        this.broadcastPresentation([currentPresentation]);
+    let onPeerConnect = function (tracker) {
+      if (!tracker) {
+        let livePresentations = this.get('livePresentations');
+        let currentPresentation = this.get('currentPresentation');
+        if (livePresentations) {
+          this.broadcastPresentation(livePresentations);
+        } else {
+          this.broadcastPresentation([currentPresentation]);
+        }
       }
     };
     let tracker = webrtc.initialize({

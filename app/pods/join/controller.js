@@ -39,7 +39,6 @@ export default Controller.extend({
       let name = this.get('name');
       let guid = this.get('guid');
       let isPresenter = this.get('isPresenter');
-      let landing = this.get('landing');
       let slideId = this.get('slideId');
       let userPeerId = this.get('userPeerId');
       let slideData = this.get('data');
@@ -50,10 +49,12 @@ export default Controller.extend({
       }];
 
       if (isPresenter) {
+        let slide = this.get('slide');
         let tracker = webrtc.initialize({
           data: slideData,
           callback: publishData.bind(slideContext),
-          random: true
+          random: true,
+          onPeerConnect: slide.onPeerConnected.bind(slide)
         });
         let landing = this.get('landing');
         landing.broadcastPresentation.call(landing, [{

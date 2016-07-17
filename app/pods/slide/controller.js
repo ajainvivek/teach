@@ -37,6 +37,11 @@ export default Ember.Controller.extend({
       Reveal.setState(data.state);
     }
   }.observes('data'),
+  onPeerConnected: function () {
+    let data = this.get('data');
+    data.state = Reveal.getState();
+    this.broadcastData(data, data.infoHash);
+  },
   updateState: function () {
     let data = this.get('data');
     let config = this.get('config');
