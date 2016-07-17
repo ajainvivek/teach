@@ -14,6 +14,7 @@ export default Controller.extend({
   join: inject.controller('join'),
   webrtc: inject.service('webrtc'),
   ajax: Ember.inject.service(),
+  currentPresentation: {},
   getData: function () {
     return this.get('ajax').request('/data/es6_ep1.json');
   },
@@ -51,8 +52,11 @@ export default Controller.extend({
     let webrtc = this.get('webrtc');
     let onPeerConnect = function () {
       let livePresentations = this.get('livePresentations');
+      let currentPresentation = this.get('currentPresentation');
       if (livePresentations) {
         this.broadcastPresentation(livePresentations);
+      } else {
+        this.broadcastPresentation([currentPresentation]);
       }
     };
     let tracker = webrtc.initialize({

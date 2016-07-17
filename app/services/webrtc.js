@@ -42,6 +42,16 @@ export default Ember.Service.extend({
         infoHash: tracker.infoHash,
         peer: peer
       });
+
+      if (tracker.infoHash === "0000000000000000000000000000000000000000") {
+        peer.on('signal', function () {
+          let data = slideData;
+          console.log("signal received...");
+          onPeerConnectCallback(data);
+        });
+      }
+
+
       if (peer.connected) {
         self.onPeerConnect(peer, slideData, callback, onPeerConnectCallback, tracker.infoHash);
       } else {

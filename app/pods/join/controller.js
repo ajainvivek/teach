@@ -55,6 +55,7 @@ export default Controller.extend({
           callback: publishData.bind(slideContext),
           random: true
         });
+        let landing = this.get('landing');
         landing.broadcastPresentation.call(landing, [{
           id : slideId,
           name : name,
@@ -62,6 +63,13 @@ export default Controller.extend({
           userPeerId: userPeerId,
           infoHash: tracker.infoHash
         }]);
+        landing.set('currentPresentation', {
+          id : slideId,
+          name : name,
+          isPresenter: isPresenter,
+          userPeerId: userPeerId,
+          infoHash: tracker.infoHash
+        });
       } else {
         let infoHash = this.get('infoHash');
         webrtc.initialize({
