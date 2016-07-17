@@ -43,10 +43,10 @@ export default Ember.Service.extend({
         peer: peer
       });
       if (peer.connected) {
-        self.onPeerConnect(peer, slideData, callback, onPeerConnectCallback);
+        self.onPeerConnect(peer, slideData, callback, onPeerConnectCallback, tracker.infoHash);
       } else {
         peer.once('connect', function () {
-          self.onPeerConnect(peer, slideData, callback, onPeerConnectCallback);
+          self.onPeerConnect(peer, slideData, callback, onPeerConnectCallback, tracker.infoHash);
         });
       }
     });
@@ -85,13 +85,14 @@ export default Ember.Service.extend({
       }
     });
   },
-  onPeerConnect : function (peer, slideData, callback, onPeerConnectCallback) {
+  onPeerConnect : function (peer, slideData, callback, onPeerConnectCallback, infoHash) {
     let peers = this.get('peers');
     peer.on('data', onMessage);
     peer.on('close', onClose);
     peer.on('error', onClose);
     peer.on('end', onClose);
     if(slideData) {
+      slideData.infoHash = infoHash;
       peer.send(JSON.stringify(slideData));
 
       if (typeof callback === 'function') {
@@ -102,7 +103,7 @@ export default Ember.Service.extend({
     if (typeof onPeerConnectCallback === 'function') {
       onPeerConnectCallback();
     }
-    
+
     function onClose () {
       peer.removeListener('data', onMessage);
       peer.removeListener('close', onClose);

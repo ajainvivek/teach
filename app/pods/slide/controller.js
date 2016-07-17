@@ -15,6 +15,8 @@ export default Ember.Controller.extend({
   userList: [],
   user: {},
   config: {},
+  slideData: {},
+  slides: [],
   isUserListFilled : function () {
     let userList = this.get('userList');
     return (userList.length > 0) ? true : false;
@@ -28,6 +30,23 @@ export default Ember.Controller.extend({
       this.set('userList', updateUserList);
     });
   }.on('init'),
+  onDataUpdate: function () {
+    let config = this.get('config');
+    let data = this.get('data');
+    if (data && data.state && !config.isPresenter) {
+      Reveal.setState(data.state);
+    }
+  }.observes('data'),
+  updateState: function () {
+    let data = this.get('data');
+    let config = this.get('config');
+    let userList = this.get('userList');
+    if(config.isPresenter) {
+      data.state = Reveal.getState();
+    }
+    data.users = userList;
+    this.broadcastData(data, data.infoHash);
+  },
   actions:{
     slideQuestion: function(){
       this.set('questionData', '');
@@ -44,6 +63,10 @@ export default Ember.Controller.extend({
       $('#left-panel').hide();
     },
 
+    slideStateUpdate: function ()  {
+      this.updateState();
+    },
+
     questionTimeCompleted: function(){
       this.set('timeCompleted', true);
     }
@@ -56,15 +79,15 @@ export default Ember.Controller.extend({
     return result[0];
   },
 
-  broadcastData : function (slideData) {
+  broadcastData : function (slideData, infoHash) {
     let webrtc = this.get('webrtc');
     if (slideData) {
-      webrtc.broadcast(slideData);
+      webrtc.broadcast(slideData, infoHash);
     }
   },
 
   publishData : function (slideData) {
-    console.log(slideData);
+    this.set('data', slideData);
     this.EventBus.publish('onSlideDataUpdate', slideData);
   }
 });

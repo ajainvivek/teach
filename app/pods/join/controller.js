@@ -19,6 +19,7 @@ export default Controller.extend({
     let slide = this.get('slide');
     this.getData().then(function (data) {
       slide.set('data', data);
+      slide.set('slides', data.slides);
     });
   },
   guid : function () {
@@ -41,13 +42,12 @@ export default Controller.extend({
       let landing = this.get('landing');
       let slideId = this.get('slideId');
       let userPeerId = this.get('userPeerId');
-      let slideData = {
-        users : [{
-          id : guid,
-          name : name,
-          isPresenter: isPresenter
-        }]
-      };
+      let slideData = this.get('data');
+      slideData.users = [{
+        id : guid,
+        name : name,
+        isPresenter: isPresenter
+      }];
 
       if (isPresenter) {
         let tracker = webrtc.initialize({
@@ -72,12 +72,14 @@ export default Controller.extend({
         });
       }
 
+      let infoHash = this.get('infoHash');
       this.transitionTo('slide', {
         queryParams: {
           id: slideId,
           isPresenter: isPresenter,
           name: name,
-          userId: guid
+          userId: guid,
+          infoHash: infoHash
         }
       });
     }

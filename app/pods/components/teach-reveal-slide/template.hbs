@@ -1,7 +1,7 @@
 <div class="reveal-frame">
   <div class="reveal">
       <div class="slides">
-          {{#each slide in data.slides}}
+          {{#each slide in slides}}
             {{#if slide.contentTypeScript}}
               <section type={{slide.type}} slide={{slide.id}} contentType={{slide.contentType}} data-markdown>
                 <script type="text/template">

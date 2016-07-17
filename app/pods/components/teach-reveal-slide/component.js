@@ -7,7 +7,7 @@ const {
 
 export default Ember.Component.extend({
   slideService: inject.service('slide-service'),
-  data: [],
+  slides: [],
   config: {},
   didInsertElement: function () {
     let self=this;
@@ -50,6 +50,14 @@ export default Ember.Component.extend({
       }else{
         self.sendAction('slideInfo');
       }
+      self.sendAction('slideStateUpdate');
+    });
+
+    Reveal.addEventListener( 'fragmentshown', function( event ) {
+        self.sendAction('slideStateUpdate');
+    });
+    Reveal.addEventListener( 'fragmenthidden', function( event ) {
+        self.sendAction('slideStateUpdate');
     });
   }
 });

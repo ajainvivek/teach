@@ -10,7 +10,13 @@ const {
 export default Controller.extend({
   featuredSlides: [],
   liveSlides: [],
+  slide: inject.controller('slide'),
+  join: inject.controller('join'),
   webrtc: inject.service('webrtc'),
+  ajax: Ember.inject.service(),
+  getData: function () {
+    return this.get('ajax').request('/data/es6_ep1.json');
+  },
   isLiveSlidesFilled: function () {
     let liveSlides = this.get('liveSlides');
     return (liveSlides.length > 0) ? true : false;
@@ -111,34 +117,50 @@ export default Controller.extend({
     }
   },
   actions: {
-    joinPresentation (data) {
+    joinPresentation (obj) {
+      let self = this;
+      let join = this.get('join');
       let peerId = this.get('tracker').peerId;
-      this.transitionTo('join', {
-        queryParams: {
-          isPresenter: false,
-          id: data.id,
-          infoHash: data.infoHash,
-          peerId: peerId
-        }
+      this.getData().then(function (data) {
+        join.set('data', data);
+        self.transitionTo('join', {
+          queryParams: {
+            isPresenter: false,
+            id: obj.id,
+            infoHash: obj.infoHash,
+            peerId: peerId
+          }
+        });
       });
     },
-    hostPresentation (data) {
+    hostPresentation (obj) {
+      let self = this;
+      let join = this.get('join');
       let peerId = this.get('tracker').peerId;
       let infoHash = this.get('tracker').infoHash;
-      this.transitionTo('join', {
-        queryParams: {
-          isPresenter: true,
-          id: data.id,
-          peerId: peerId,
-          infoHash: infoHash
-        }
+      this.getData().then(function (data) {
+        join.set('data', data);
+        self.transitionTo('join', {
+          queryParams: {
+            isPresenter: true,
+            id: obj.id,
+            peerId: peerId,
+            infoHash: infoHash
+          }
+        });
       });
     },
     goToSlide (id) {
-      this.transitionTo('slide', {
-        queryParams: {
-          id: id
-        }
+      let self = this;
+      let slide = this.get('slide');
+      this.getData().then(function (data) {
+        slide.set('slides', data.slides);
+        self.transitionTo('slide', {
+          queryParams: {
+            id: id,
+            isPresenter: true
+          }
+        });
       });
     }
   }

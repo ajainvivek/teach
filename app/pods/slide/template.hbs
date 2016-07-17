@@ -8,7 +8,7 @@
       {{/if}}
     </div>
     <div class="small-12 medium-12 large-12 columns">
-      {{teach-reveal-slide data=data config=config slideQuestion=(action 'slideQuestion') slideInfo=(action 'slideInfo')}}
+      {{teach-reveal-slide slides=slides config=config slideQuestion=(action 'slideQuestion') slideInfo=(action 'slideInfo') slideStateUpdate=(action 'slideStateUpdate')}}
     </div>
     {{#if isUserListFilled}}
       <div id="right-panel">

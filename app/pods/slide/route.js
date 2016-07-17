@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import config from '../../config/config';
 
 export default Ember.Route.extend({
   setupController: function(controller, model, transition){
