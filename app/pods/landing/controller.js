@@ -32,21 +32,23 @@ export default Controller.extend({
     let presentations = [{
       "id": "1",
       "slideTemplate": "url",
-      "title": "ES6 - Zombie Attack - Eps 1",
+      "title": "Zombie Attack",
       "desc": "",
       "snapshotImg": "/images/es6-ep1.jpg",
       "theme": "default",
       "author": "Ajain Vivek",
-      "isLive": false
+      "isLive": false,
+      "available": true
     }, {
       "id": "2",
       "slideTemplate": "url",
-      "title": "ES6 - Zombie Attack - Eps 2",
+      "title": "Zombie Attack",
       "desc": "",
       "snapshotImg": "/images/es6-ep2.jpg",
       "theme": "default",
       "author": "Ajain Vivek",
-      "isLive": false
+      "isLive": false,
+      "available": false
     }];
 
     let webrtc = this.get('webrtc');

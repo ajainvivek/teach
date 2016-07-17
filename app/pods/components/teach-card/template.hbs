@@ -13,6 +13,11 @@
   <div class="owl-carousel owl-theme">
     {{#each data as |presentation|}}
       {{#paper-card class="card"}}
+          {{#unless presentation.available}}
+            <div class="coming-soon-wrapper">
+              <img src="images/comingSoon.png" alt="" />
+            </div>
+          {{/unless}}
           <div class="row">
             <div class="columns">
                 <img src={{presentation.snapshotImg}}>
