@@ -128,6 +128,7 @@ export default Ember.Service.extend({
         peerId: peer.id,
         connectionClosed: true
       });
+      peer.destroy();
     }
 
     function onMessage (data) {
