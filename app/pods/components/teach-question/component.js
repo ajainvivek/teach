@@ -53,7 +53,7 @@ export default Ember.Component.extend({
 
       submit: function(){
         this.set('isSubmitDisabled', true);
-        this.set('isTimerToContinue', false);
+        this.set('isTimerToContinue', true);
         console.log(this.get('userAnswer'));
         this.sendAction('onAnswer', this.get('userAnswer'));
       }
@@ -64,9 +64,9 @@ export default Ember.Component.extend({
       this.timer = setTimeout(function(){
         let time = self.get('timeLeft');
         //If submit button is disabled, dont change display time but continue timer internally
-        if(!self.get('isSubmitDisabled')){
+        //if(!self.get('isSubmitDisabled')){
           self.set("timeToShow", moment.utc(time*1000).format('mm:ss'));
-        }
+        //}
         if(time > 0){
           self.set('timeLeft',time-1);
           self.startTimer();
