@@ -5,6 +5,7 @@
   "title": "Title",
   "snapshotImg": "url",
   "theme": "default",
+  "author": "Ajain Vivek",
   "slides": [
     {
       "id": "122",
@@ -410,7 +411,7 @@
       "type": "qs",
       "isCurrentQs": false,
       "contentTypeScript": true,
-      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n document.addEventListener('click', function () { \n console.log(this) \n }) \n \n document.addEventListener('click', () => console.log(this));</code></pre>",
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n document.addEventListener('click', function () { \n console.log(this) \n }) \n document.addEventListener('click', () => console.log(this));</code></pre>",
       "qs": {
         "id": "140",
         "type": "single",
@@ -448,7 +449,7 @@
       "type": "qs",
       "isCurrentQs": false,
       "contentTypeScript": true,
-      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n var getZombieCount = () \n => 2; \n console.log(zombieCount(2));</code></pre>",
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n var getZombieCount = () \n => 2; \n console.log(getZombieCount(2));</code></pre>",
       "qs": {
         "id": "141",
         "type": "single",
@@ -492,7 +493,7 @@
       "type": "qs",
       "isCurrentQs": false,
       "contentTypeScript": true,
-      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n var killed = 20; \n console.log(`Zombies Killed: ${killed}`); </code></pre>",
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n var killed = 20; \n console.log(Zombies Killed: ${killed}); </code></pre>",
       "qs": {
         "id": "143",
         "type": "single",
@@ -519,9 +520,7 @@
           "2"
         ],
         "chart": "bar",
-        "responses": [
-
-        ],
+        "responses": [],
         "timeout": 45,
         "isCompleted": true
       }
@@ -532,7 +531,7 @@
       "type": "qs",
       "isCurrentQs": false,
       "contentTypeScript": true,
-      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n var killed = 20; \n console.log(`Zombies Killed: \\${killed}`); </code></pre>",
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n var killed = 20; \n console.log(Zombies Killed: \\${killed}); </code></pre>",
       "qs": {
         "id": "144",
         "type": "single",
@@ -559,9 +558,7 @@
           "4"
         ],
         "chart": "bar",
-        "responses": [
-
-        ],
+        "responses": [],
         "timeout": 45,
         "isCompleted": true
       }
@@ -572,7 +569,7 @@
       "type": "qs",
       "isCurrentQs": false,
       "contentTypeScript": true,
-      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n var killed = 20; \n console.log(`Zombies Killed: ${'Count:'killed}`); </code></pre>",
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n var killed = 20; \n console.log(Zombies Killed: ${'Count:'killed}); </code></pre>",
       "qs": {
         "id": "145",
         "type": "single",
@@ -599,12 +596,16 @@
           "2"
         ],
         "chart": "bar",
-        "responses": [
-
-        ],
+        "responses": [],
         "timeout": 45,
         "isCompleted": true
       }
+    },
+    {
+      "id": "147",
+      "seqNo": 15,
+      "type": "info",
+      "content": "<img src='https://media.giphy.com/media/QiroFHnxL6try/giphy.gif' />"
     }
   ],
   "users": []

@@ -1,0 +1,575 @@
+{
+  "roomId": "123",
+  "id": 1,
+  "slideTemplate": "url",
+  "title": "Title",
+  "snapshotImg": "url",
+  "theme": "default",
+  "slides": [
+    {
+      "id": "122",
+      "seqNo": 1,
+      "type": "info",
+      "content": "<h4>ES6 Zombie Attack - Epsode 3</h4>"
+    },
+    {
+      "id": "123",
+      "seqNo": 2,
+      "type": "info",
+      "content": "<h2>Zombie Attack Agenda ?</h2> <p> <ul> <li class=\"fragment\">Modules</li><li class=\"fragment\">Object Literals</li></ul> </p>"
+    },
+    {
+      "id": "124",
+      "seqNo": 3,
+      "type": "info",
+      "isCurrentQs": false,
+      "content": "<p>JavaScript has had modules for a long time. However, they were implemented via libraries like requirejs, not built into the language. ES6 is the first time that JavaScript has built-in modules.</p></br><p><b>ES6 modules are stored in files. There is exactly one module per file and one file per module.</p>"
+    },
+    {
+      "id": "125",
+      "seqNo": 4,
+      "type": "info",
+      "isCurrentQs": false,
+      "content": "<h3>Zombie Time</h3><p>You will be fired up with questions. Choose the answer within 45 seconds. <br><br><br> Ninja's, Let's get rolling!!!. </p>"
+    },
+    {
+      "id": "200",
+      "seqNo": 45,
+      "type": "info",
+      "content": "<img src='https://comeonhitme.files.wordpress.com/2013/07/azor-ahai-a-song-of-ice-and-fire-3437825-905-521.jpg' />"
+    },
+    {
+      "id": "201",
+      "seqNo": 46,
+      "type": "info",
+      "content": "<img src='http://i4m032imkie3gak4u536h719.wpengine.netdna-cdn.com/wp-content/uploads/2015/03/liRaRmK.jpg' width='530px'/>"
+    },
+    {
+      "id": "202",
+      "seqNo": 47,
+      "type": "info",
+      "content": "<img src='http://img.ifcdn.com/images/7f8b13a42fe5615da6943a157be97c787a8d3cdcc260baad6694e53e74d2a094_1.jpg' />"
+    },
+    {
+      "id": "203",
+      "seqNo": 48,
+      "type": "info",
+      "content": "<img src='https://s-media-cache-ak0.pinimg.com/564x/67/6a/67/676a673be743ffe8f4a77d972ba96374.jpg' />"
+    },
+    {
+      "id": "204",
+      "seqNo": 49,
+      "type": "info",
+      "content": "<img src='https://i.imgflip.com/17o5co.jpg' />"
+    },
+    {
+      "id": "126",
+      "seqNo": 5,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict';\n //module.js - file 1 \n export let gameName = 'Zombie Attack'; \n //application.js - file 2 \n import {gameName} from 'module'; \n console.log(gameName); </code></pre><a href='https://ember-twiddle.com/aa0dcea54264b5822491b285dd969fc6?openFiles=controllers.application.js%2C' target='_blank'>Twiddle</a>",
+      "qs": {
+        "id": "126",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Zombie Attack"
+          },
+          {
+            "id": "2",
+            "value": "Module not found"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "127",
+      "seqNo": 6,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n //module.js - file 1 \n export let gameName = 'Zombie Attack'; \n export let hero = 'Jon Snow'; \n //application.js - file 2 \n import {gameName, hero} from 'module'; \n console.log(gameName, hero); </code></pre> <a href='https://ember-twiddle.com/fbee8d7fb9dc202845313ea88bb33af9?openFiles=controllers.application.js%2C' target='_blank'>Twiddle</a>",
+      "qs": {
+        "id": "127",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Zombie Attack, Jon Snow"
+          },
+          {
+            "id": "2",
+            "value": "Zombie Attack, undefined"
+          },
+          {
+            "id": "3",
+            "value": "Zombie Attack, null"
+          },
+          {
+            "id": "4",
+            "value": "Reference Error: hero not defined"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "129",
+      "seqNo": 7,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n //module.js - file 1 \n export let gameName = 'Zombie Attack'; \n export let hero = 'Jon Snow'; \n //application.js - file 2 \n import {gameName, hero as character} from 'module'; \n console.log(gameName, character); </code></pre><a href='' target='_blank'>Twiddle</a>",
+      "qs": {
+        "id": "129",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax Error"
+          },
+          {
+            "id": "2",
+            "value": "Zombie Attack, undefined"
+          },
+          {
+            "id": "3",
+            "value": "Zombie Attack, Jon Snow"
+          },
+          {
+            "id": "4",
+            "value": "Zombie Attack, Jon Stark"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "131",
+      "seqNo": 9,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n //module.js - file 1 \n export let gameName = 'Zombie Attack'; \n export let hero = 'Jon Snow'; \n console.log('module loaded'); \n //application.js - file 2 \n console.log('loading game..'); \n import {gameName, hero as character} from 'module'; \n console.log(gameName, character); </code></pre><a href='https://ember-twiddle.com/fbee8d7fb9dc202845313ea88bb33af9?openFiles=module.js%2C' target='_blank'>Twiddle</a>",
+      "qs": {
+        "id": "131",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "loading game..., module loaded, Zombie Attack:Jon Snow"
+          },
+          {
+            "id": "2",
+            "value": "module loaded, Zombie Attack:Jon Snow, loading game..."
+          },
+          {
+            "id": "3",
+            "value": "module loaded, loading game..., Zombie Attack:Jon Snow"
+          },
+          {
+            "id": "4",
+            "value": "Syntax Error"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "132",
+      "seqNo": 11,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n //module.js - file 1 \n export let gameName = 'Zombie Attack'; \n let hero = 'Jon Snow'; \n export default hero; \n //application.js - file 2 \n import someCharacter from 'module'; \n console.log(someCharacter + 'knows modules a bit now');</code></pre><a href='https://ember-twiddle.com/cec5f35d5a004012534fc0deef86a161?openFiles=controllers.application.js%2C' target='_blank'>Twiddle</a>",
+      "qs": {
+        "id": "132",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax error"
+          },
+          {
+            "id": "2",
+            "value": "Jon Snows knows a modules a bit now"
+          },
+          {
+            "id": "3",
+            "value": "undefined knows a modules a bit now"
+          },
+          {
+            "id": "4",
+            "value": "Zombie Attack knows a modules a bit now"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "134",
+      "seqNo": 12,
+      "type": "info",
+      "content": "<img src='https://media.giphy.com/media/y4wLYA7MOfLsk/giphy.gif' />"
+    },
+    {
+      "id": "136",
+      "seqNo": 14,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n //module.js - file 1 \n export let gameName = 'Zombie Attack'; \n export let hero = 'Jon Snow'; \n export {gameName, hero}; \n //application.js - file 2 \n import someCharacter from 'module'; \n console.log(someCharacter.hero + 'knows modules a little bit now'); </code></pre><a href='https://ember-twiddle.com/4f8b6a415253536d679a91baea55d84e?openFiles=controllers.application.js%2C' target='_blank'>Twiddle</a>",
+      "qs": {
+        "id": "136",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax error"
+          },
+          {
+            "id": "2",
+            "value": "Jon Snows knows a modules a little bit now"
+          },
+          {
+            "id": "3",
+            "value": "undefined knows a modules a little bit now"
+          },
+          {
+            "id": "4",
+            "value": "Zombie Attack knows a modules a little bit now"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "138",
+      "seqNo": 16,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n //module.js - file 1 \n export let gameName = 'Zombie Attack'; \n export let hero = 'Jon Snow'; \n //application.js - file 2 \n import * as values from 'module'; \n console.log(values.hero + 'knows modules a little more bit now');</code></pre><a href='https://ember-twiddle.com/11bfc2eb9a50017ae76c2aa4f71c16f0?openFiles=controllers.application.js%2C' target='_blank'>Twiddle</a>",
+      "qs": {
+        "id": "138",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax error"
+          },
+          {
+            "id": "2",
+            "value": "Jon Snows knows a modules a little more bit now"
+          },
+          {
+            "id": "3",
+            "value": "undefined knows a modules a little more bit now"
+          },
+          {
+            "id": "4",
+            "value": "Zombie Attack knows a modules a little more bit now"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "139",
+      "seqNo": 17,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; //module.js - file 1 \n export let hero = 'Jon Snow'; \n //application.js - file 2 \n import {hero} from 'module'; \n hero = 'Ramsay Bolton'; \n console.log(hero + 'is the hero'); <a href='https://ember-twiddle.com/de446709db34be21ca2ec197d1b957ec?openFiles=controllers.application.js%2C' target='_blank'>Twiddle</a></code></pre>",
+      "qs": {
+        "id": "139",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "hero is Read Only"
+          },
+          {
+            "id": "2",
+            "value": "Jon Snows is the hero"
+          },
+          {
+            "id": "3",
+            "value": "Ramsay Bolton is the hero"
+          },
+          {
+            "id": "4",
+            "value": "undefined is the hero"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "150",
+      "seqNo": 15,
+      "type": "info",
+      "content": "<img src='images/ramsay_funny.gif' />"
+    },
+    {
+      "id": "140",
+      "seqNo": 17,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n //module.js - file 1 \n export let hero = { \n name: 'Jon Snow' \n }; \n //application.js - file 2 \n import {hero} from 'module'; \n hero.name = 'Tyrion Lannister'; \n console.log(hero.name + 'is the hero now'); </code></pre><a href='https://ember-twiddle.com/?openFiles=controllers.application.js%2C' target='_blank'>Twiddle</a>",
+      "qs": {
+        "id": "140",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "hero is Read Only"
+          },
+          {
+            "id": "2",
+            "value": "Jon Snows is the hero now"
+          },
+          {
+            "id": "3",
+            "value": "Tyrion Lannister is the hero now"
+          },
+          {
+            "id": "4",
+            "value": "undefined is the hero"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "150",
+      "seqNo": 15,
+      "type": "info",
+      "content": "<img src='http://www.telltalesonline.com/wp-content/uploads/2016/04/tyrion-jon-snow-meme.jpg' height='530' />"
+    },
+    {
+      "id": "141",
+      "seqNo": 18,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n //module.js - file 1 \n export let hero = { \n name: 'Jon Snow' \n }; \n export function chooseHero () { \n console.log(hero.name); \n } \n //application.js - file 2 \n import {hero} from 'module'; \n hero.name = 'Tyrion Lannister'; \n chooseHero(); \n console.log(hero.name + 'is the hero now');</code></pre><a href='https://ember-twiddle.com/3712c9e6c8faac5d1adcc87bf1485653?openFiles=controllers.application.js%2C' target='_blank'>Twiddle</a>",
+      "qs": {
+        "id": "141",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Tyrion Lannister, Tyrion Lannister"
+          },
+          {
+            "id": "2",
+            "value": "Jon Snow, Tyrion Lannister"
+          },
+          {
+            "id": "3",
+            "value": "Jon Snow, Jon Snow"
+          },
+          {
+            "id": "4",
+            "value": "Tyrion Lannister, Jon Snow"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "142",
+      "seqNo": 19,
+      "type": "info",
+      "content": "<h2>Object Literals </h2>"
+    },
+    {
+      "id": "143",
+      "seqNo": 18,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let character = 'Daenerys';\n let dragons = '3';\n let game = {\n character,\n dragons\n };\n console.log(character + ' has ' + dragons + ' dragons');</code></pre></pre><a href='http://jsbin.com/lexocifupo/edit?js,console' target='_blank'>Twiddle</a>",
+      "qs": {
+        "id": "143",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax Error unexpected token"
+          },
+          {
+            "id": "2",
+            "value": "Daenerys has 3 dragons"
+          },
+          {
+            "id": "3",
+            "value": "Daenerys has undefined dragons"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "144",
+      "seqNo": 18,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let character = 'Daenerys'; \n let dragons = '3'; \n let game = { \n character, \n dragons, \n start () { \n console.log(this.character + ' has ' + this.dragons + ' dragons'); \n } \n }; \n game.start();  </code></pre><a href='http://jsbin.com/havufuhaqa/edit?js,console' target='_blank'>Twiddle</a>",
+      "qs": {
+        "id": "144",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax Error unexpected token"
+          },
+          {
+            "id": "2",
+            "value": "null"
+          },
+          {
+            "id": "3",
+            "value": "undefined"
+          },
+          {
+            "id": "4",
+            "value": "''"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "145",
+      "seqNo": 18,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n var character = 'Jon'; \n var king = { \n [character] : character + ' is King of North' \n }; \n console.log(king.Jon);</code></pre><a href='http://jsbin.com/xiquzaqepo/edit?js,console' target='_blank'>Twiddle</a>",
+      "qs": {
+        "id": "145",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax Error unexpected token"
+          },
+          {
+            "id": "2",
+            "value": "undefined is King of North"
+          },
+          {
+            "id": "3",
+            "value": "Jon is King of North"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "150",
+      "seqNo": 15,
+      "type": "info",
+      "content": "<img src='https://media.giphy.com/media/HSdt5TyThhQHu/giphy.gif' />"
+    }
+  ],
+  "users": []
+}

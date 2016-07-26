@@ -49,6 +49,7 @@
     "ember-lodash": "0.0.10",
     "ember-moment": "6.1.0",
     "ember-paper": "0.2.14",
+    "emberfire": "2.0.1",
     "eslint": "^3.0.0",
     "liquid-fire": "0.23.1"
   },

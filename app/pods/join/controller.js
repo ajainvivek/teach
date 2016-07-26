@@ -8,20 +8,9 @@ const {
 export default Controller.extend({
   name: '',
   slide: inject.controller('slide'),
-  landing: inject.controller('landing'),
   webrtc: inject.service('webrtc'),
   isPresenter: false,
   ajax: Ember.inject.service(),
-  getData: function () {
-    return this.get('ajax').request('/data/es6_ep1.json');
-  },
-  loadSlideData: function() {
-    let slide = this.get('slide');
-    this.getData().then(function (data) {
-      slide.set('data', data);
-      slide.set('slides', data.slides);
-    });
-  },
   guid : function () {
     function s4() {
       return Math.floor((1 + Math.random()) * 0x10000)
@@ -40,7 +29,6 @@ export default Controller.extend({
       let guid = this.get('guid');
       let isPresenter = this.get('isPresenter');
       let slideId = this.get('slideId');
-      let userPeerId = this.get('userPeerId');
       let slideData = this.get('data');
       slideData.users = [{
         id : guid,
@@ -56,41 +44,34 @@ export default Controller.extend({
           random: true,
           onPeerConnect: slide.onPeerConnected.bind(slide)
         });
-        let landing = this.get('landing');
-        landing.broadcastPresentation.call(landing, [{
-          id : slideId,
-          name : name,
-          isPresenter: isPresenter,
-          userPeerId: userPeerId,
-          infoHash: tracker.infoHash
-        }]);
-        landing.set('currentPresentation', {
-          id : slideId,
-          name : name,
-          isPresenter: isPresenter,
-          userPeerId: userPeerId,
-          infoHash: tracker.infoHash
+        var newPresentation = this.store.createRecord('presentation', {
+          name: name,
+          slideId: slideId,
+          infoHash: tracker.infoHash,
+          timestamp: new Date().getTime()
         });
+        let ref = firebase.database().ref('presentations/' + newPresentation.id);
+        ref.onDisconnect().remove(function (data) {
+          console.log(data);
+        });
+        newPresentation.save();
       } else {
-        let infoHash = this.get('infoHash');
         let slide = this.get('slide');
         webrtc.initialize({
           data: slideData,
           callback: publishData.bind(slideContext),
           random: true,
-          infoHash: infoHash,
-          onPeerConnect: slide.onPeerConnected.bind(slide)
+          onPeerConnect: slide.onPeerConnected.bind(slide),
+          infoHash: slideData.infoHash
         });
       }
 
-      let infoHash = this.get('infoHash');
       this.transitionTo('slide', {
         queryParams: {
           id: slideId,
           isPresenter: isPresenter,
           name: name,
-          userId: guid,
-          infoHash: infoHash
+          userId: guid
         }
       });
     }

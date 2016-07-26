@@ -5,6 +5,12 @@ module.exports = function(environment) {
     modulePrefix: 'teach',
     environment: environment,
     podModulePrefix: 'teach/pods',
+    firebase: {
+      apiKey: "AIzaSyDArVxgGeBYifuxHPM7gXn0yzM4uy6Fn9g",
+      authDomain: "teach-c5bd7.firebaseapp.com",
+      databaseURL: "https://teach-c5bd7.firebaseio.com",
+      storageBucket: "teach-c5bd7.appspot.com"
+    },
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {

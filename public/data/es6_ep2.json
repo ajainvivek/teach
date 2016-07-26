@@ -1,0 +1,737 @@
+{
+  "roomId": "123",
+  "id": 1,
+  "slideTemplate": "url",
+  "title": "Title",
+  "snapshotImg": "url",
+  "theme": "default",
+  "slides": [
+    {
+      "id": "122",
+      "seqNo": 1,
+      "type": "info",
+      "content": "<h2>ES6 Zombie Attack - Epsode 2</h2>"
+    },
+    {
+      "id": "123",
+      "seqNo": 2,
+      "type": "info",
+      "content": "<h2>Zombie Attack Agenda ?</h2> <p> <ul> <li class=\"fragment\">Rest & Spread</li><li class=\"fragment\">Default Function Parameters</li><li class=\"fragment\">Destructuring</li></ul> </p>"
+    },
+    {
+      "id": "124",
+      "seqNo": 3,
+      "type": "info",
+      "isCurrentQs": false,
+      "content": "<p><b>'Rest'</b> refers to gathering up parameters and putting up in a single array</p></br><p><b>'Spread'</b> refers to spreading elements in array or even a string.</p>"
+    },
+    {
+      "id": "125",
+      "seqNo": 4,
+      "type": "info",
+      "isCurrentQs": false,
+      "content": "<h3>Zombie Time</h3><p>You will be fired up with questions. Choose the answer within 45 seconds. <br><br><br> Ninja's, Let's get rolling!!!. </p>"
+    },
+    {
+      "id": "126",
+      "seqNo": 5,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict';\n var showWeapons = function (id, ...categories) { \n console.log(categories instanceof Array);\n }\n showWeapons(1, 'search', 'rifle');</code></pre>",
+      "qs": {
+        "id": "126",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "true"
+          },
+          {
+            "id": "2",
+            "value": "false"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "127",
+      "seqNo": 6,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n var showWeapons = function (id, ...categories) { \n console.log(arguments.length);\n }\n showWeapons(1, 'search', 'rifle');</code></pre>",
+      "qs": {
+        "id": "127",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "1"
+          },
+          {
+            "id": "2",
+            "value": "2"
+          },
+          {
+            "id": "3",
+            "value": "3"
+          },
+          {
+            "id": "4",
+            "value": "Reference Error: zombie not defined"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "129",
+      "seqNo": 7,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let kills = [10, 20, 30]; \n console.log(Math.max(...kills));</code></pre>",
+      "qs": {
+        "id": "129",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "30"
+          },
+          {
+            "id": "2",
+            "value": "undefined"
+          },
+          {
+            "id": "3",
+            "value": "20"
+          },
+          {
+            "id": "4",
+            "value": "0"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "131",
+      "seqNo": 9,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let emptyKills = Array(...[,,]); \n console.log(emptyKills); </code></pre>",
+      "qs": {
+        "id": "131",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "'', '"
+          },
+          {
+            "id": "2",
+            "value": "undefined, undefined"
+          },
+          {
+            "id": "3",
+            "value": "null, null"
+          },
+          {
+            "id": "4",
+            "value": "0, 0"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "132",
+      "seqNo": 11,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let maxKills = Math.max(...'786533'); \n console.log(maxKills); \n } </code></pre>",
+      "qs": {
+        "id": "132",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax error"
+          },
+          {
+            "id": "2",
+            "value": "786533"
+          },
+          {
+            "id": "3",
+            "value": "8"
+          },
+          {
+            "id": "4",
+            "value": "1"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "134",
+      "seqNo": 12,
+      "type": "info",
+      "content": "<img src='http://www.cutecatgifs.com/wp-content/uploads/2013/11/massager.gif' />"
+    },
+    {
+      "id": "135",
+      "seqNo": 13,
+      "type": "info",
+      "content": "<h2>Default Function Parameters </h2>"
+    },
+    {
+      "id": "136",
+      "seqNo": 14,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let getHumanCount = function (count = 0) {\n return count;\n }\n console.log(getHumanCount());\n console.log(getHumanCount(8));</code></pre>",
+      "qs": {
+        "id": "136",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "undefined, 8"
+          },
+          {
+            "id": "2",
+            "value": "undefined, undefined"
+          },
+          {
+            "id": "3",
+            "value": "8, 0"
+          },
+          {
+            "id": "4",
+            "value": "0, 8"
+          }
+        ],
+        "answer": [
+          "4"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "138",
+      "seqNo": 16,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let getWeapon = function (type = 'rifle', name = 'sniper') {\n return type + ':' + name;\n }\n console.log(getWeapon(undefined, 'AK 47'));</code></pre>",
+      "qs": {
+        "id": "138",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "undefined:AK 47"
+          },
+          {
+            "id": "2",
+            "value": "undefined:sniper"
+          },
+          {
+            "id": "3",
+            "value": "rifle:AK47"
+          },
+          {
+            "id": "4",
+            "value": "undefined:undefined"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "139",
+      "seqNo": 17,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; let getHealth = function (total, damage = total * 0.5) {\n return total - damage;\n }\n console.log(getHealth(100));</code></pre>",
+      "qs": {
+        "id": "139",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "100"
+          },
+          {
+            "id": "2",
+            "value": "90"
+          },
+          {
+            "id": "3",
+            "value": "undefined"
+          },
+          {
+            "id": "4",
+            "value": "null"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "140",
+      "seqNo": 17,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let generateDamage = () => 0.2;\n let getHealth = function (total, damage = total * generateDamage()) {\n return total - damage;\n }\n console.log(getHealth(100));</code></pre>",
+      "qs": {
+        "id": "140",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "80"
+          },
+          {
+            "id": "2",
+            "value": "Syntax Error"
+          },
+          {
+            "id": "3",
+            "value": "90"
+          },
+          {
+            "id": "4",
+            "value": "undefined"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "141",
+      "seqNo": 18,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let generateDamage = () => 0.2;\n let getHealth = function (total, damage = total * generateDamage()) {\n return arguments.length;\n }\n console.log(getHealth(100));</code></pre>",
+      "qs": {
+        "id": "141",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "2"
+          },
+          {
+            "id": "2",
+            "value": "1"
+          },
+          {
+            "id": "3",
+            "value": "undefined"
+          },
+          {
+            "id": "4",
+            "value": "Reference Error"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "142",
+      "seqNo": 19,
+      "type": "info",
+      "content": "<h2>Destructuring </h2><img src='https://raw.githubusercontent.com/loverajoel/jstips/gh-pages/resources/jstips-header-blog.gif'>"
+    },
+    {
+      "id": "143",
+      "seqNo": 18,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let weaponsCount = [10, 60, 100];\n let [AK47, Knife, Grenade] = weaponsCount;\n console.log(Knife);</code></pre>",
+      "qs": {
+        "id": "143",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax Error unexpected token"
+          },
+          {
+            "id": "2",
+            "value": "60"
+          },
+          {
+            "id": "3",
+            "value": "0"
+          },
+          {
+            "id": "4",
+            "value": "100"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "144",
+      "seqNo": 18,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let weaponsCount = [10, 60];\n let [AK47, Knife, Grenade] = weaponsCount;\n console.log(Grenade); </code></pre>",
+      "qs": {
+        "id": "144",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax Error unexpected token"
+          },
+          {
+            "id": "2",
+            "value": "null"
+          },
+          {
+            "id": "3",
+            "value": "undefined"
+          },
+          {
+            "id": "4",
+            "value": "''"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "145",
+      "seqNo": 18,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let weaponsCount = [10, 60, 100]; \n let [AK47, , Grenade] = weaponsCount; \n console.log(Grenade);</code></pre>",
+      "qs": {
+        "id": "145",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax Error unexpected token"
+          },
+          {
+            "id": "2",
+            "value": "undefined"
+          },
+          {
+            "id": "3",
+            "value": "null"
+          },
+          {
+            "id": "4",
+            "value": "100"
+          }
+        ],
+        "answer": [
+          "4"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "146",
+      "seqNo": 18,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let weaponsCount = [10, 60, 100];\n let [AK47, ...remaining] = weaponsCount;\n console.log(remaining);\n</code></pre>",
+      "qs": {
+        "id": "146",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax Error unexpected token"
+          },
+          {
+            "id": "2",
+            "value": "undefined"
+          },
+          {
+            "id": "3",
+            "value": "[60, 100]"
+          },
+          {
+            "id": "4",
+            "value": "100"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "160",
+      "seqNo": 18,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let weaponsCount = [10, 60, [100, 120]];\n let [AK47, Knife, [Grenade, Sniper]] = weaponsCount;\n console.log(Sniper);</code></pre>",
+      "qs": {
+        "id": "160",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax Error unexpected token"
+          },
+          {
+            "id": "2",
+            "value": "undefined"
+          },
+          {
+            "id": "3",
+            "value": "120"
+          },
+          {
+            "id": "4",
+            "value": "100"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "147",
+      "seqNo": 18,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let getWeaponCount = function ([AK47, Rifle], Knife) {\n return AK47 + Rifle + Knife;\n }\n console.log(getWeaponCount([100, 20], 40));</code></pre>",
+      "qs": {
+        "id": "147",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Syntax Error unexpected token"
+          },
+          {
+            "id": "2",
+            "value": "160"
+          },
+          {
+            "id": "3",
+            "value": "120"
+          },
+          {
+            "id": "4",
+            "value": "null"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "148",
+      "seqNo": 18,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let health = { \n min : 0, \n average : 50, \n max : 100 \n }; \n let {min, average, high} = health; \n console.log(min, average, high); </code></pre>",
+      "qs": {
+        "id": "148",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "0, 50, 100"
+          },
+          {
+            "id": "2",
+            "value": "undefined, undefined, undefined"
+          },
+          {
+            "id": "3",
+            "value": "Syntax Error"
+          },
+          {
+            "id": "4",
+            "value": "null"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "149",
+      "seqNo": 18,
+      "type": "qs",
+      "isCurrentQs": false,
+      "contentTypeScript": true,
+      "content": "<h4>Zombie Time</h4><pre><code>'use strict'; \n let [start, end] = 'AZ'; \n console.log(end); </code></pre>",
+      "qs": {
+        "id": "149",
+        "type": "single",
+        "title": "What will logger print ?",
+        "options": [
+          {
+            "id": "1",
+            "value": "Z"
+          },
+          {
+            "id": "2",
+            "value": "undefined"
+          },
+          {
+            "id": "3",
+            "value": "Syntax Error"
+          },
+          {
+            "id": "4",
+            "value": "null"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "chart": "bar",
+        "responses": [],
+        "timeout": 45,
+        "isCompleted": true
+      }
+    },
+    {
+      "id": "150",
+      "seqNo": 15,
+      "type": "info",
+      "content": "<img src='http://i.makeagif.com/media/8-14-2015/ASBCM8.gif' />"
+    }
+  ],
+  "users": []
+}
